@@ -312,7 +312,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
   
     if (nome.getText().equals("")) {
         
-
+        JOptionPane.showMessageDialog(null, "Preencha o nome corretamente!");
         
         
     }else if (nascimento.getText().equals("  /  /    ")){
