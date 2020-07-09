@@ -369,9 +369,9 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         email.getText(),telefone1.getText(),telefone2.getText(), 
         voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
         endereco.getText(),bairro.getSelectedItem().toString(),
-        zona.getSelectedItem().toString(),regiao.getSelectedItem().toString() 
+        zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0);
        
-        );
+        
            
        }  
        
