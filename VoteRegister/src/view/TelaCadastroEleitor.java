@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,6 +13,10 @@ import javax.swing.table.DefaultTableModel;
  * @author julio
  */
 public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
+
+    private static void showMessageDialog(Object object, String preencha_corretamente_os_campos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     /**
      * Creates new form TelaCadastroEleitor
@@ -302,10 +307,69 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        
+//         
+  
+    if (nome.getText().equals("")) {
+        
+
+        
+        
+    }else if (nascimento.getText().equals("  /  /    ")){
+        
+        JOptionPane.showMessageDialog(null, "Preencha a data de nascimento corretamente!");
+        
+    }else if (funcionario.getSelectedItem().equals("Selecione")){
+        
+         JOptionPane.showMessageDialog(null, "Preencha a funcionario corretamente!");
+        
+    }else if (email.getText().equals("")){
+        
+         JOptionPane.showMessageDialog(null, "Preencha a o e-mail corretamente!");
+        
+    }else if (telefone1.getText().equals("(  )      -    ")){
+        
+         JOptionPane.showMessageDialog(null, "Preencha o Telefone 1 corretamente");
+        
+    }else if (telefone1.getText().equals("(  )      -    ")){
+        
+         JOptionPane.showMessageDialog(null, "Preencha o Telefone 1 corretamente");
+        
+    }else if(voto.getSelectedItem().equals("Selecione")){
+        JOptionPane.showMessageDialog(null, "Preencha o voto corretamente");
+    
+    }else if(pleito.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Preencha o pleito corretamente");
+    
+    }else if(colaborador.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Preencha o colaborador corretamente");
+    
+    }else if(endereco.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Preencha o endereço corretamente");
+    
+    }else if(bairro.getSelectedItem().equals("Selecione")){
+        JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
+    
+    }else if(zona.getSelectedItem().equals("Selecione")){
+        JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
+    
+    }else if(regiao.getSelectedItem().equals("Selecione")){
+        JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
+    }
+    else{
+        
         DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-      
         Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
         dtmEleitores.addRow(dados);
+//           
+       }  
+    
+       
+
+
+
+
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
