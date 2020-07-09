@@ -363,18 +363,16 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
         dtmEleitores.addRow(dados);
         
-//        Eleitor eleitor = new Eleitor (
-//        
-////         nome.getText(),     String nascimento, String funcionario, 
-////         String email,    String telefone1,  String telefone2, 
-////         String voto,     String pleito,     String colaborador, 
-////         String endereco, String bairro,     String zona, 
-////         String regiao,   int 0)
-//    
-//        
-//        
-//        )
-////           
+        Eleitor eleitor = new Eleitor (
+        
+        nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(), 
+        email.getText(),telefone1.getText(),telefone2.getText(), 
+        voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
+        endereco.getText(),bairro.getSelectedItem().toString(),
+        zona.getSelectedItem().toString(),regiao.getSelectedItem().toString() 
+       
+        );
+           
        }  
        
     }//GEN-LAST:event_jButton1ActionPerformed
