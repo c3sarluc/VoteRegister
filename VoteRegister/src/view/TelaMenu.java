@@ -119,6 +119,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/group_go.png"))); // NOI18N
         jMenuItem4.setText("Consultar eleitor");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -178,6 +183,13 @@ public class TelaMenu extends javax.swing.JFrame {
         telaCadEleitor.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+
+        TelaConsultaEleitor telaConsultEleitor = new TelaConsultaEleitor();
+        jMenu.add(telaConsultEleitor);
+        telaConsultEleitor.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

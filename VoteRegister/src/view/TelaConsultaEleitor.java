@@ -63,6 +63,8 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         consulta = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
+        setClosable(true);
+
         jCadastro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
