@@ -48,10 +48,6 @@ public class Eleitor {
         
     }
 
-    public Eleitor(String text, String text0, String toString, String text1, String text2, String text3, String toString0, String text4, String text5, String text6, String toString1, String toString2, String toString3) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public String getNome() {
         return nome;
     }

@@ -5,6 +5,10 @@
  */
 package view;
 
+import Classes.Usuario;
+import ConexaoBD.ConexaoSQLite;
+import ConexaoBD.EleitorDAO;
+import ConexaoBD.UsuarioDAO;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -22,7 +26,15 @@ public class TelaLogin extends javax.swing.JDialog {
     public String login;
     
     public boolean checkLogin(String login, String senha){
-        return login.equals("menezes") && senha.equals("2020");
+        
+        
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+        
+            
+        UsuarioDAO dao = new UsuarioDAO(conexaoSQLite);
+        
+        return dao.checkUser(login, senha) >= 1;
+
     }
     
     
@@ -33,6 +45,19 @@ public class TelaLogin extends javax.swing.JDialog {
         initComponents();
         this.setDefaultCloseOperation(0);
         
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+        
+        EleitorDAO eleitorDao = new EleitorDAO(conexaoSQLite);
+        UsuarioDAO usuarioDao = new UsuarioDAO(conexaoSQLite);
+        
+        eleitorDao.criarTabela();
+        usuarioDao.criarTabela();
+        
+        if(usuarioDao.checkUser("menezes", String.valueOf("2020".hashCode())) < 1){
+            conexaoSQLite.conectar();
+            usuarioDao.insert(new Usuario("menezes", "2020", 0));
+            conexaoSQLite.desconectar();
+        }
         
         
     }
@@ -46,7 +71,7 @@ public class TelaLogin extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLogin = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
@@ -93,36 +118,36 @@ public class TelaLogin extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout jLoginLayout = new javax.swing.GroupLayout(jLogin);
-        jLogin.setLayout(jLoginLayout);
-        jLoginLayout.setHorizontalGroup(
-            jLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLoginLayout.createSequentialGroup()
-                .addGroup(jLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLoginLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(jLabel4))
-                    .addGroup(jLoginLayout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(195, 195, 195)
                         .addComponent(jLabel3))
-                    .addGroup(jLoginLayout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(134, 134, 134)
-                        .addGroup(jLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
                             .addComponent(txtLogin)
-                            .addGroup(jLoginLayout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(125, 125, 125)
                                 .addComponent(jButton1))
                             .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))))
                 .addContainerGap(133, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLoginLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2))
         );
-        jLoginLayout.setVerticalGroup(
-            jLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLoginLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jButton2)
                 .addGap(36, 36, 36)
                 .addComponent(jLabel4)
@@ -145,11 +170,11 @@ public class TelaLogin extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -248,7 +273,7 @@ public class TelaLogin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jLogin;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
