@@ -6,6 +6,13 @@
 package view;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /**
@@ -34,7 +41,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
 
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jCadastro = new javax.swing.JTable();
+        tblEleitores = new javax.swing.JTable();
 
         setClosable(true);
         setTitle("Gerar PDF");
@@ -49,7 +56,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
             }
         });
 
-        jCadastro.setModel(new javax.swing.table.DefaultTableModel(
+        tblEleitores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -57,7 +64,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
                 "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Região"
             }
         ));
-        jScrollPane1.setViewportView(jCadastro);
+        jScrollPane1.setViewportView(tblEleitores);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,6 +109,45 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
         }
 
         Document doc = new Document ();
+        
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path+"relátorio.pdf"));
+            
+            doc.open();
+            
+            PdfPTable tbl = new PdfPTable(14);
+            
+            //Adicionando cabeçalhos.
+            tbl.addCell("Nome");
+            tbl.addCell("Data de nacimento");
+            tbl.addCell("Funcionário");
+            tbl.addCell("E-mail");
+            tbl.addCell("Telefone 1");
+            tbl.addCell("Telefone 2");
+            tbl.addCell("Voto");
+            tbl.addCell("Pleito");
+            tbl.addCell("Colaborador");
+            tbl.addCell("Endereço");
+            tbl.addCell("Bairro");
+            tbl.addCell("Observação");
+            tbl.addCell("Zona");
+            tbl.addCell("Região");
+            
+            for (int i = 0; i < tblEleitores.getRowCount(); i++  ){
+                
+            //Adicionando Strings
+            String ID = tblEleitores.getValueAt(i, 0).toString();
+            
+        }
+            
+            
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TelaGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(TelaGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 
 
@@ -110,7 +156,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JTable jCadastro;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblEleitores;
     // End of variables declaration//GEN-END:variables
 }
