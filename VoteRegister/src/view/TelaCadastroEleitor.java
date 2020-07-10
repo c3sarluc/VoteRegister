@@ -5,19 +5,17 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Classes.Eleitor;
+import ConexaoBD.ConexaoSQLite;
+import ConexaoBD.EleitorDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author julio
  */
 public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
-
-    private static void showMessageDialog(Object object, String preencha_corretamente_os_campos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * Creates new form TelaCadastroEleitor
@@ -309,9 +307,9 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         
-//         
-  
-    if (nome.getText().equals("")) {
+        
+        
+         if (nome.getText().equals("")) {
         
         JOptionPane.showMessageDialog(null, "Preencha o nome corretamente!");
         
@@ -361,20 +359,36 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         
         DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
         Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
+        
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+        
+        EleitorDAO dao = new EleitorDAO(conexaoSQLite);
+        
+        dao.criarTabela();
+        
+        Eleitor eleitor = new Eleitor(
+               nome.getText(), nascimento.getText(), funcionario.getSelectedItem().toString(),
+               email.getText(),telefone1.getText(),telefone2.getText(),
+               voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
+               endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),
+               regiao.getSelectedItem().toString(), 0 
+        );  
+        
+        System.out.println(eleitor);
+        
+        conexaoSQLite.conectar();
+        dao.insert(eleitor);
+        conexaoSQLite.desconectar();
+        
+        
         dtmEleitores.addRow(dados);
         
-        Eleitor eleitor = new Eleitor (
-        
-        nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(), 
-        email.getText(),telefone1.getText(),telefone2.getText(), 
-        voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
-        endereco.getText(),bairro.getSelectedItem().toString(),
-        zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0);
-       
-        
            
-       }  
-       
+      }  
+        
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
