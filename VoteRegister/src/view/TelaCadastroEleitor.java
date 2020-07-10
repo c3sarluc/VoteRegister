@@ -64,7 +64,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         zona = new javax.swing.JComboBox<>();
         regiao = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        obsercacao = new javax.swing.JTextField();
+        observacao = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -226,6 +226,12 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
             }
         });
 
+        observacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                observacaoActionPerformed(evt);
+            }
+        });
+
         jLabel14.setText("Observação");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -243,7 +249,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(obsercacao, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(observacao, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel14))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +287,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(zona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(regiao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(obsercacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(observacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -355,6 +361,10 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     }else if(bairro.getSelectedItem().equals("Selecione")){
         JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
     
+    }else if (observacao.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Preencha a obervação corretamente");
+        
+        
     }else if(zona.getSelectedItem().equals("Selecione")){
         JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
     
@@ -364,7 +374,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     else{
         
         DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-        Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
+        Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
         
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         
@@ -376,8 +386,8 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                nome.getText(), nascimento.getText(), funcionario.getSelectedItem().toString(),
                email.getText(),telefone1.getText(),telefone2.getText(),
                voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
-               endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),
-               regiao.getSelectedItem().toString(), 0 
+               endereco.getText(),bairro.getSelectedItem().toString(),observacao.getText(),
+               zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0 
         );  
         
         System.out.println(eleitor);
@@ -396,6 +406,10 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void observacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_observacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_observacaoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -425,7 +439,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField nascimento;
     private javax.swing.JTextField nome;
-    private javax.swing.JTextField obsercacao;
+    private javax.swing.JTextField observacao;
     private javax.swing.JTextField pleito;
     private javax.swing.JComboBox<String> regiao;
     private javax.swing.JFormattedTextField telefone1;

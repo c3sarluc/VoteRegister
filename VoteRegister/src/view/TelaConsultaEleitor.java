@@ -65,8 +65,9 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
             colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
             endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
             bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
-            zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
-            regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
+            observacao.setText((String) jCadastro.getValueAt(jCadastro.getSelectedRow(),12));
+            zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
+            regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
                     
             
 
