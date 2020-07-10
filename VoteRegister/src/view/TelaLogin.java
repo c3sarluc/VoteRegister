@@ -88,7 +88,7 @@ public class TelaLogin extends javax.swing.JDialog {
 
         jLabel2.setText("Senha");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/politics (1).png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voting-box.png"))); // NOI18N
 
         jButton1.setText("Entrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
