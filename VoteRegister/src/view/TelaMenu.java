@@ -133,12 +133,17 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/folder.png"))); // NOI18N
         jMenu6.setText("Documentos");
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/application_form_add.png"))); // NOI18N
-        jMenuItem5.setText("Gerar planilha");
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/page_red.png"))); // NOI18N
+        jMenuItem5.setText("Gerar PDF");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem5);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/application_go.png"))); // NOI18N
-        jMenuItem7.setText("Enviar planilha");
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/email_go.png"))); // NOI18N
+        jMenuItem7.setText("Enviar PDF");
         jMenu6.add(jMenuItem7);
 
         jMenuBar1.add(jMenu6);
@@ -192,6 +197,13 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu.add(telaConsultEleitor);
         telaConsultEleitor.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+
+        TelaGerarPDF telaGerPDF = new TelaGerarPDF();
+        jMenu.add(telaGerPDF);
+        telaGerPDF.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments

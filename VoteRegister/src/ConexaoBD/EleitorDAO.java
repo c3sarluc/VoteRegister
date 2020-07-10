@@ -41,7 +41,8 @@ public class EleitorDAO {
                 + "endereco text,"
                 + "bairro text,"
                 + "zona text,"
-                + "regiao text"
+                + "regiao text,"
+                + "observacao text"
                 + " );";
 
         //executando o sql de criar tabelas
@@ -97,6 +98,7 @@ public class EleitorDAO {
                         resultSet.getString("colaborador"), 
                         resultSet.getString("endereco"), 
                         resultSet.getString("bairro"), 
+                        resultSet.getString("observacao"), 
                         resultSet.getString("zona"), 
                         resultSet.getString("regiao"), 
                         resultSet.getInt("id"))); 
@@ -121,8 +123,8 @@ public class EleitorDAO {
     public void insert(Eleitor eleitor) {
         String sql = "INSERT INTO tbl_eleitor ( nome ,nascimento,"+
                 " funcionario, email, telefone1, telefone2, voto, pleito,"+
-                " colaborador, endereco, bairro, zona, regiao)"+
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                " colaborador, endereco, bairro, zona, regiao, observacao)"+
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         boolean conectou = false;
         try {
@@ -140,12 +142,34 @@ public class EleitorDAO {
             pstmt.setString(11, eleitor.getBairro());
             pstmt.setString(12, eleitor.getZona());
             pstmt.setString(13, eleitor.getRegiao());
+            pstmt.setString(14, eleitor.getObservacao());
             
             
             
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    
+        public void delete(int id){
+        
+        Statement statement = null;
+        
+        conexaoSQLite.conectar();
+        
+        String sql = "Delete from tbl_eleitor where id = " + id + ";";
+        
+        statement = conexaoSQLite.criarStatement();
+        
+        try {
+            statement.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }finally{
+            conexaoSQLite.desconectar();
         }
     }
 

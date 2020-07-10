@@ -64,6 +64,8 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         zona = new javax.swing.JComboBox<>();
         regiao = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        observacao = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Cadastro Eleitor");
@@ -73,7 +75,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Zona", "Região"
+                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Região"
             }
         ));
         jScrollPane1.setViewportView(jCadastro);
@@ -224,6 +226,14 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
             }
         });
 
+        observacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                observacaoActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Observação");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -232,17 +242,16 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(227, 227, 227)
-                                .addComponent(jLabel10)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel9)
+                        .addGap(227, 227, 227)
+                        .addComponent(jLabel10))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(observacao, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(zona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -250,8 +259,9 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(regiao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(jLabel12)))
+                            .addComponent(bairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -268,14 +278,16 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(zona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(regiao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(regiao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(observacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -297,7 +309,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -349,6 +361,10 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     }else if(bairro.getSelectedItem().equals("Selecione")){
         JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
     
+    }else if (observacao.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Preencha a obervação corretamente");
+        
+        
     }else if(zona.getSelectedItem().equals("Selecione")){
         JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
     
@@ -358,7 +374,10 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     else{
         
         DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-        Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
+        Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),
+            email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),
+            pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),
+            observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
         
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         
@@ -370,10 +389,11 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                nome.getText(), nascimento.getText(), funcionario.getSelectedItem().toString(),
                email.getText(),telefone1.getText(),telefone2.getText(),
                voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
-               endereco.getText(),bairro.getSelectedItem().toString(),zona.getSelectedItem().toString(),
-               regiao.getSelectedItem().toString(), 0 
+               endereco.getText(),bairro.getSelectedItem().toString(), observacao.getText(),
+               zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0 
         );  
         
+             System.out.println(observacao.getText());
         System.out.println(eleitor);
         
         conexaoSQLite.conectar();
@@ -391,6 +411,10 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void observacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_observacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_observacaoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> bairro;
@@ -405,6 +429,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -418,6 +443,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField nascimento;
     private javax.swing.JTextField nome;
+    private javax.swing.JTextField observacao;
     private javax.swing.JTextField pleito;
     private javax.swing.JComboBox<String> regiao;
     private javax.swing.JFormattedTextField telefone1;
