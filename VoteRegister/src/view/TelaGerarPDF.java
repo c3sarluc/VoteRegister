@@ -5,8 +5,10 @@
  */
 package view;
 
+import view.TelaConsultaEleitor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
@@ -103,42 +105,78 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int x=j.showSaveDialog(this);
         
-        if(x==JFileChooser.APPROVE_OPTION){
-            
+//        if(x==JFileChooser.APPROVE_OPTION){
+//            
             path=j.getSelectedFile().getPath();
-        }
+            System.out.println(path);
+//        }
 
         Document doc = new Document ();
         
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream(path+"relátorio.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream(path+"\\relatorio.pdf"));
             
             doc.open();
             
-            PdfPTable tbl = new PdfPTable(14);
+            doc.add(new Paragraph("Gerando PDF em Java - metadados"));
             
-            //Adicionando cabeçalhos.
-            tbl.addCell("Nome");
-            tbl.addCell("Data de nacimento");
-            tbl.addCell("Funcionário");
-            tbl.addCell("E-mail");
-            tbl.addCell("Telefone 1");
-            tbl.addCell("Telefone 2");
-            tbl.addCell("Voto");
-            tbl.addCell("Pleito");
-            tbl.addCell("Colaborador");
-            tbl.addCell("Endereço");
-            tbl.addCell("Bairro");
-            tbl.addCell("Observação");
-            tbl.addCell("Zona");
-            tbl.addCell("Região");
             
-            for (int i = 0; i < tblEleitores.getRowCount(); i++  ){
+            
+           
+//            tbl.addCell("Nome");
+//            tbl.addCell("Data de nacimento");
+//            tbl.addCell("Funcionário");
+//            tbl.addCell("E-mail");
+//            tbl.addCell("Telefone 1");
+//            tbl.addCell("Telefone 2");
+//            tbl.addCell("Voto");
+//            tbl.addCell("Pleito");
+//            tbl.addCell("Colaborador");
+//            tbl.addCell("Endereço");
+//            tbl.addCell("Bairro");
+//            tbl.addCell("Observação");
+//            tbl.addCell("Zona");
+//            tbl.addCell("Região");
+            
+//            for (int i = 0; i < tblEleitores.getRowCount(); i++  ){
                 
             //Adicionando Strings
-            String ID = tblEleitores.getValueAt(i, 0).toString();
+//            String nome = tblEleitores.getValueAt(i, 0).toString();
+//            nascimento = tblEleitores.getValueAt(i, 0).toString();
+//            funcionario = tblEleitores.getValueAt(i, 0).toString();
+//            email = tblEleitores.getValueAt(i, 0).toString();
+//            telefone1 = tblEleitores.getValueAt(i, 0).toString();
+//            telefone2 = tblEleitores.getValueAt(i, 0).toString();
+//            voto = tblEleitores.getValueAt(i, 0).toString();
+//            pleito = tblEleitores.getValueAt(i, 0).toString();
+//            colaborador = tblEleitores.getValueAt(i, 0).toString();
+//            endereco = tblEleitores.getValueAt(i, 0).toString();
+//            bairro  = tblEleitores.getValueAt(i, 0).toString();
+//            observacao = tblEleitores.getValueAt(i, 0).toString();
+//            zona = tblEleitores.getValueAt(i, 0).toString();
+//            String regiao = tblEleitores.getValueAt(i, 0).toString();
+
+          
+//              tbl.addCell(nome);
+//              tbl.addCell(nascimento);
+//              tbl.addCell(funcionario);
+//              tbl.addCell(email);
+//              tbl.addCell(telefone1);
+//              tbl.addCell(telefone2);
+//              tbl.addCell(voto);
+//              tbl.addCell(pleito);
+//              tbl.addCell(colaborador);
+//              tbl.addCell(endereco);
+//              tbl.addCell(bairro);
+//              tbl.addCell(observacao);
+//              tbl.addCell(zona);
+//              tbl.addCell(regiao);
+                          
+//        }
+
+     
             
-        }
+            
             
             
             
@@ -149,7 +187,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
             Logger.getLogger(TelaGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
+        doc.close();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
