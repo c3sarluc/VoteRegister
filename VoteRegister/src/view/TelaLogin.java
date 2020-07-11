@@ -53,7 +53,7 @@ public class TelaLogin extends javax.swing.JDialog {
         eleitorDao.criarTabela();
         usuarioDao.criarTabela();
         
-        if(usuarioDao.checkUser("menezes", String.valueOf("2020".hashCode())) < 1){
+        if(usuarioDao.checkUser("menezes", "2020") < 1){
             conexaoSQLite.conectar();
             usuarioDao.insert(new Usuario("menezes", "2020", 0));
             conexaoSQLite.desconectar();

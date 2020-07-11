@@ -5,11 +5,15 @@
  */
 package view;
 
-import view.TelaConsultaEleitor;
+import Classes.Eleitor;
+import ConexaoBD.ConexaoSQLite;
+import ConexaoBD.EleitorDAO;
+import java.util.ArrayList;
+import java.util.function.Consumer;
+import javax.swing.table.DefaultTableModel;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -22,12 +26,31 @@ import javax.swing.JFileChooser;
  * @author julio
  */
 public class TelaGerarPDF extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form TelaGerarPDF
-     */
+    ArrayList<Eleitor> eleitores;
+    
     public TelaGerarPDF() {
         initComponents();
+        
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+        
+        DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
+        
+        EleitorDAO eleitorDAO = new EleitorDAO(conexaoSQLite);
+        
+        eleitores = eleitorDAO.getEleitores();
+        
+        Consumer<Eleitor> consumer = s -> { 
+            Object[] dados = {
+                              s.getId(), s.getNome(), s.getNascimento(), s.getFuncionario(),
+                              s.getEmail(),s.getTelefone1(),s.getTelefone2(),
+                              s.getVoto(),s.getPleito(),s.getColaborador(),
+                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao()};
+            dtmEleitores.addRow(dados);
+        }; 
+        eleitores.stream().forEach(consumer);
+        
+        jCadastro.setModel(dtmEleitores);
+        
         
         
     }
@@ -43,7 +66,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
 
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEleitores = new javax.swing.JTable();
+        jCadastro = new javax.swing.JTable();
 
         setClosable(true);
         setTitle("Gerar PDF");
@@ -58,7 +81,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
             }
         });
 
-        tblEleitores.setModel(new javax.swing.table.DefaultTableModel(
+        jCadastro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -66,7 +89,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
                 "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Região"
             }
         ));
-        jScrollPane1.setViewportView(tblEleitores);
+        jScrollPane1.setViewportView(jCadastro);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,7 +123,8 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String path="";
+
+                String path="";
         JFileChooser j= new JFileChooser();
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int x=j.showSaveDialog(this);
@@ -118,83 +142,43 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
             
             doc.open();
             
-            doc.add(new Paragraph("Gerando PDF em Java - metadados"));
-            
-            
-            
-           
-//            tbl.addCell("Nome");
-//            tbl.addCell("Data de nacimento");
-//            tbl.addCell("Funcionário");
-//            tbl.addCell("E-mail");
-//            tbl.addCell("Telefone 1");
-//            tbl.addCell("Telefone 2");
-//            tbl.addCell("Voto");
-//            tbl.addCell("Pleito");
-//            tbl.addCell("Colaborador");
-//            tbl.addCell("Endereço");
-//            tbl.addCell("Bairro");
-//            tbl.addCell("Observação");
-//            tbl.addCell("Zona");
-//            tbl.addCell("Região");
-            
-//            for (int i = 0; i < tblEleitores.getRowCount(); i++  ){
+            Consumer<Eleitor> consumer = s -> { 
                 
-            //Adicionando Strings
-//            String nome = tblEleitores.getValueAt(i, 0).toString();
-//            nascimento = tblEleitores.getValueAt(i, 0).toString();
-//            funcionario = tblEleitores.getValueAt(i, 0).toString();
-//            email = tblEleitores.getValueAt(i, 0).toString();
-//            telefone1 = tblEleitores.getValueAt(i, 0).toString();
-//            telefone2 = tblEleitores.getValueAt(i, 0).toString();
-//            voto = tblEleitores.getValueAt(i, 0).toString();
-//            pleito = tblEleitores.getValueAt(i, 0).toString();
-//            colaborador = tblEleitores.getValueAt(i, 0).toString();
-//            endereco = tblEleitores.getValueAt(i, 0).toString();
-//            bairro  = tblEleitores.getValueAt(i, 0).toString();
-//            observacao = tblEleitores.getValueAt(i, 0).toString();
-//            zona = tblEleitores.getValueAt(i, 0).toString();
-//            String regiao = tblEleitores.getValueAt(i, 0).toString();
-
-          
-//              tbl.addCell(nome);
-//              tbl.addCell(nascimento);
-//              tbl.addCell(funcionario);
-//              tbl.addCell(email);
-//              tbl.addCell(telefone1);
-//              tbl.addCell(telefone2);
-//              tbl.addCell(voto);
-//              tbl.addCell(pleito);
-//              tbl.addCell(colaborador);
-//              tbl.addCell(endereco);
-//              tbl.addCell(bairro);
-//              tbl.addCell(observacao);
-//              tbl.addCell(zona);
-//              tbl.addCell(regiao);
-                          
-//        }
-
-     
+                try {   
+                    doc.add(new Paragraph(s.getNome()));
+                    doc.add(new Paragraph("Nascimento: " + s.getNome() + "  Funcionario:" + s.getFuncionario()));
+                    doc.add(new Paragraph("E-mail: " + s.getEmail()+ "  Telefone1:" + s.getTelefone1() + "  Telefone1:" +  s.getTelefone2()));
+                    doc.add(new Paragraph("Voto: " + s.getVoto() + "  Pleito:" + s.getPleito()+ "  Colaborador:" + s.getColaborador()));
+                    doc.add(new Paragraph("Endereço: " + s.getEndereco()));
+                    doc.add(new Paragraph("Bairro: " + s.getBairro() + "  Zona:" + s.getZona()));
+                    doc.add(new Paragraph("Região: " + s.getRegiao() + "  Observação:" + s.getObservacao()));
+                    doc.add(new Paragraph("-----------------------------------------------------------------------------------------------"));
+                } catch (DocumentException ex) {
+                    Logger.getLogger(TelaGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+                
+//            Object[] dados = {
+//                              s.getId(), s.getNome(), s.getNascimento(), s.getFuncionario(),
+//                              s.getEmail(),s.getTelefone1(),s.getTelefone2(),
+//                              s.getVoto(),s.getPleito(),s.getColaborador(),
+//                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao()};
+//            }; 
+            };
+            eleitores.stream().forEach(consumer);
             
             
-            
-            
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(TelaGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
+        } catch (FileNotFoundException | DocumentException ex) {
             Logger.getLogger(TelaGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         doc.close();
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JTable jCadastro;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblEleitores;
     // End of variables declaration//GEN-END:variables
 }

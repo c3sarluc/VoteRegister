@@ -24,12 +24,13 @@ public class Eleitor {
     private String bairro;
     private String zona;
     private String regiao;
+    private String observacao;
 
     public Eleitor(String nome,     String nascimento, String funcionario, 
                    String email,    String telefone1,  String telefone2, 
                    String voto,     String pleito,     String colaborador, 
-                   String endereco, String bairro,     String zona, 
-                   String regiao,   int id)
+                   String endereco, String bairro,     String observacao,
+                   String zona,     String regiao,     int id)
     {
         this.id = id;
         this.nome = nome;
@@ -42,15 +43,14 @@ public class Eleitor {
         this.pleito = pleito;
         this.colaborador = colaborador;
         this.endereco = endereco;
+        this.observacao = observacao;
         this.bairro = bairro;
         this.zona = zona;
         this.regiao = regiao;
         
     }
 
-    public Eleitor(String text, String text0, String toString, String text1, String text2, String text3, String toString0, String text4, String text5, String text6, String toString1, String text7, String toString2, String toString3, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     public String getNome() {
         return nome;
@@ -165,9 +165,19 @@ public class Eleitor {
         this.id = id;
     }
 
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+    
+    
+
     @Override
     public String toString() {
-        return "Eleitor{" + "id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + ", funcionario=" + funcionario + ", email=" + email + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", voto=" + voto + ", pleito=" + pleito + ", colaborador=" + colaborador + ", endereco=" + endereco + ", bairro=" + bairro + ", zona=" + zona + ", regiao=" + regiao + '}';
+        return "Eleitor{" + "id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + ", funcionario=" + funcionario + ", email=" + email + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", voto=" + voto + ", pleito=" + pleito + ", colaborador=" + colaborador + ", endereco=" + endereco + ", bairro=" + bairro + ", observação=" + observacao +", zona=" + zona + ", regiao=" + regiao + '}';
     }
     
     

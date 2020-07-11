@@ -374,7 +374,10 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
     else{
         
         DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-        Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
+        Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),
+            email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),
+            pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),
+            observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
         
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         
@@ -386,10 +389,11 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                nome.getText(), nascimento.getText(), funcionario.getSelectedItem().toString(),
                email.getText(),telefone1.getText(),telefone2.getText(),
                voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
-               endereco.getText(),bairro.getSelectedItem().toString(),observacao.getText(),
+               endereco.getText(),bairro.getSelectedItem().toString(), observacao.getText(),
                zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0 
         );  
         
+             System.out.println(observacao.getText());
         System.out.println(eleitor);
         
         conexaoSQLite.conectar();
