@@ -5,95 +5,17 @@
  */
 package view;
 
-import Classes.Eleitor;
-import ConexaoBD.ConexaoSQLite;
-import ConexaoBD.EleitorDAO;
-import ConexaoBD.UsuarioDAO;
-import java.util.ArrayList;
-import java.util.function.Consumer;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author julio
  */
-public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
-    int selectedRow = 0;
-    int rowCount;
+public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
+
     /**
-     * Creates new form TelaConsultaEleitor
+     * Creates new form TelaConsultaColaborador
      */
-    void refreshTable() {
-            DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-   
-           System.out.println(rowCount);
-
-            for(int i=0; i<= rowCount; i++ ){
-                 dtmEleitores.removeRow(0);
-                 System.out.println(i);
-            }
-
-    }
-    
-    
-    
-    public TelaConsultaEleitor() {
+    public TelaConsultaColaborador() {
         initComponents();
-        
-        
-        
-        DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        
-        EleitorDAO eleitorDAO = new EleitorDAO(conexaoSQLite);
-        
-        ArrayList<Eleitor> eleitores = eleitorDAO.getEleitores();
-        
-        Consumer<Eleitor> consumer = s -> { 
-            Object[] dados = {
-                              s.getId(), s.getNome(), s.getNascimento(), s.getFuncionario(),
-                              s.getEmail(),s.getTelefone1(),s.getTelefone2(),
-                              s.getVoto(),s.getPleito(),s.getColaborador(),
-                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao()};
-            dtmEleitores.addRow(dados);
-        }; 
-        eleitores.stream().forEach(consumer);
-        rowCount = dtmEleitores.getRowCount();
-        
-        jCadastro.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
-            
-            selectedRow = jCadastro.getSelectedRow();
-            
-            lbID.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 0).toString());
-            nome.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 1).toString());
-            nascimento.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 2).toString());
-            funcionario.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 3).toString());
-            email.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 4).toString());
-            telefone1.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 5).toString());
-            
-            String tel2 = jCadastro.getValueAt(jCadastro.getSelectedRow(), 6).toString();
-            if(!tel2.equals("(  )      -    ")){
-                telefone2.setText(tel2);
-            }else{
-                telefone2.setText("(00) 00000-0000");
-            }
-
-            voto.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 7).toString());
-            pleito.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 8).toString());
-            colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
-            endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
-            bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
-            zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
-            regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
-            observacao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
-            
-
-        });
-        
-        jCadastro.setModel(dtmEleitores);
-        
     }
 
     /**
@@ -105,7 +27,6 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jCadastro = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -125,8 +46,6 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         nome = new javax.swing.JTextField();
         voto = new javax.swing.JComboBox<>();
         pleito = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        colaborador = new javax.swing.JTextField();
         lbID = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -146,9 +65,6 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         observacao = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         secao = new javax.swing.JTextField();
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setClosable(true);
 
@@ -170,7 +86,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jCadastro);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Eleitor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Colaborador", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jLabel1.setText("Nome");
 
@@ -216,8 +132,6 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
 
         voto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Voto conquistado", "Voto à conquistar", "Voto não conquistado" }));
 
-        jLabel13.setText("Colaborador");
-
         lbID.setText("          ");
         lbID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -239,18 +153,6 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(pleito, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(alcance, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(colaborador)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -262,7 +164,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(100, 100, 100))
-                            .addComponent(telefone2)))
+                            .addComponent(telefone2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,6 +188,14 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(voto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(pleito, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(alcance, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -315,25 +225,21 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                     .addComponent(telefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(telefone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(voto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(voto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel8)
-                            .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(pleito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(colaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(alcance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(pleito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel16)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(alcance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -456,16 +362,18 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -475,54 +383,47 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        EleitorDAO eleitorDAO = new EleitorDAO(conexaoSQLite);
-        DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-        
-        
-        refreshTable();
-        
-        
-//        System.out.println(selectedRow);
-//        try{
-//            dtmEleitores.removeRow(Integer.parseInt(lbID.getText()));
-//        }catch(ArrayIndexOutOfBoundsException e){
-//            System.out.println(e.getMessage());
-//        }
-//        System.out.println(selectedRow);
-//        eleitorDAO.delete(Integer.parseInt(lbID.getText()));
-//        this.revalidate();
-        
-
-
-    }//GEN-LAST:event_btDeletarActionPerformed
-
     private void alcanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alcanceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_alcanceActionPerformed
+
+    private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
+//        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+//        EleitorDAO eleitorDAO = new EleitorDAO(conexaoSQLite);
+//        DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
+//
+//        refreshTable();
+
+        //        System.out.println(selectedRow);
+        //        try{
+            //            dtmEleitores.removeRow(Integer.parseInt(lbID.getText()));
+            //        }catch(ArrayIndexOutOfBoundsException e){
+            //            System.out.println(e.getMessage());
+            //        }
+        //        System.out.println(selectedRow);
+        //        eleitorDAO.delete(Integer.parseInt(lbID.getText()));
+        //        this.revalidate();
+
+    }//GEN-LAST:event_btDeletarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alcance;
     private javax.swing.JComboBox<String> bairro;
     private javax.swing.JButton btDeletar;
-    private javax.swing.JTextField colaborador;
     private javax.swing.JTextField email;
     private javax.swing.JTextField endereco;
     private javax.swing.JComboBox<String> funcionario;
     private javax.swing.JButton jButton3;
     private javax.swing.JTable jCadastro;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

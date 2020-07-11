@@ -82,7 +82,7 @@ public class TelaLogin extends javax.swing.JDialog {
         txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Login");
+        setUndecorated(true);
 
         jLabel1.setText("Nome");
 

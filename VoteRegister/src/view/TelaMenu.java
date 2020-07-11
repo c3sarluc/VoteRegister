@@ -42,11 +42,15 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
         jMenu = new javax.swing.JDesktopPane();
         bemVindo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -64,6 +68,8 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuItem6.setText("jMenuItem6");
 
+        jMenu7.setText("jMenu7");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
 
@@ -76,16 +82,16 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuLayout.setHorizontalGroup(
             jMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jMenuLayout.createSequentialGroup()
-                .addGap(612, 612, 612)
+                .addContainerGap(638, Short.MAX_VALUE)
                 .addComponent(bemVindo)
-                .addContainerGap(701, Short.MAX_VALUE))
+                .addContainerGap(685, Short.MAX_VALUE))
         );
         jMenuLayout.setVerticalGroup(
             jMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jMenuLayout.createSequentialGroup()
-                .addContainerGap(464, Short.MAX_VALUE)
+                .addContainerGap(467, Short.MAX_VALUE)
                 .addComponent(bemVindo)
-                .addGap(423, 423, 423))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/user.png"))); // NOI18N
@@ -107,6 +113,29 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/user_suit.png"))); // NOI18N
+        jMenu8.setText("Colaborador");
+
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/vcard_add.png"))); // NOI18N
+        jMenuItem8.setText("Cadastrar colaborador");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem8);
+
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/vcard_edit.png"))); // NOI18N
+        jMenuItem9.setText("Consultar colaborador");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu8);
+
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/group.png"))); // NOI18N
         jMenu2.setText("Eleitores");
 
@@ -119,7 +148,7 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/group_go.png"))); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/group_edit.png"))); // NOI18N
         jMenuItem4.setText("Consultar eleitor");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +163,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu6.setText("Documentos");
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/page_red.png"))); // NOI18N
-        jMenuItem5.setText("Gerar PDF");
+        jMenuItem5.setText("Gerar relatório");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -143,7 +172,12 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu6.add(jMenuItem5);
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/email_go.png"))); // NOI18N
-        jMenuItem7.setText("Enviar PDF");
+        jMenuItem7.setText("Enviar relatório");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem7);
 
         jMenuBar1.add(jMenu6);
@@ -154,13 +188,11 @@ public class TelaMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jMenu)
+            .addComponent(jMenu, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jMenu)
         );
 
         pack();
@@ -204,6 +236,27 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu.add(telaGerPDF);
         telaGerPDF.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+
+        TelaConsultaColaborador telaConsultColaborador = new TelaConsultaColaborador();
+        jMenu.add(telaConsultColaborador);
+        telaConsultColaborador.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+
+        TelaCadastroColaborador telaCadColaborador = new TelaCadastroColaborador();
+        jMenu.add(telaCadColaborador);
+        telaCadColaborador.setVisible(true);
+
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +302,8 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -257,5 +312,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }
