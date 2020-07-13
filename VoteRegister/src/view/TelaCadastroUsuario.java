@@ -5,14 +5,10 @@
  */
 package view;
 
-import Classes.Eleitor;
-import Classes.Usuario;
+import Entidades.Usuario;
 import ConexaoBD.ConexaoSQLite;
-import ConexaoBD.EleitorDAO;
 import ConexaoBD.UsuarioDAO;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author julio
@@ -151,18 +147,17 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         }  
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         
-        UsuarioDAO dao = new UsuarioDAO(conexaoSQLite);
+        UsuarioDAO usuarioDao = new UsuarioDAO();
         
-        dao.criarTabela();
+        usuarioDao.criarTabela();
         
         Usuario usuario = new Usuario(txName.getText(), 
         String.valueOf(txSenha.getText().hashCode()) , 0);  
         
         
-        System.out.println(usuario);
         
         conexaoSQLite.conectar();
-        dao.insert(usuario);
+        usuarioDao.insert(usuario);
         conexaoSQLite.desconectar();
         
     }//GEN-LAST:event_jButton1ActionPerformed

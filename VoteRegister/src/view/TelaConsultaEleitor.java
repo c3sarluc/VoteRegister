@@ -5,14 +5,10 @@
  */
 package view;
 
-import Classes.Eleitor;
-import ConexaoBD.ConexaoSQLite;
+import Entidades.Eleitor;
 import ConexaoBD.EleitorDAO;
-import ConexaoBD.UsuarioDAO;
 import java.util.ArrayList;
 import java.util.function.Consumer;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,34 +16,15 @@ import javax.swing.table.DefaultTableModel;
  * @author julio
  */
 public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
-    int selectedRow = 0;
-    int rowCount;
-    /**
-     * Creates new form TelaConsultaEleitor
-     */
-    void refreshTable() {
-            DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
+    
+    private DefaultTableModel dtmEleitores;
    
-           System.out.println(rowCount);
-
-            for(int i=0; i<= rowCount; i++ ){
-                 dtmEleitores.removeRow(0);
-                 System.out.println(i);
-            }
-
-    }
-    
-    
-    
     public TelaConsultaEleitor() {
+        
         initComponents();
-        
-        
-        
-        DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        
-        EleitorDAO eleitorDAO = new EleitorDAO(conexaoSQLite);
+
+        this.dtmEleitores = (DefaultTableModel) jCadastro.getModel();
+        EleitorDAO eleitorDAO = new EleitorDAO();
         
         ArrayList<Eleitor> eleitores = eleitorDAO.getEleitores();
         
@@ -60,38 +37,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
             dtmEleitores.addRow(dados);
         }; 
         eleitores.stream().forEach(consumer);
-        rowCount = dtmEleitores.getRowCount();
-        
-        jCadastro.getSelectionModel().addListSelectionListener((ListSelectionEvent event) -> {
             
-            selectedRow = jCadastro.getSelectedRow();
-            
-            lbID.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 0).toString());
-            nome.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 1).toString());
-            nascimento.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 2).toString());
-            funcionario.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 3).toString());
-            email.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 4).toString());
-            telefone1.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 5).toString());
-            
-            String tel2 = jCadastro.getValueAt(jCadastro.getSelectedRow(), 6).toString();
-            if(!tel2.equals("(  )      -    ")){
-                telefone2.setText(tel2);
-            }else{
-                telefone2.setText("(00) 00000-0000");
-            }
-
-            voto.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 7).toString());
-            pleito.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 8).toString());
-            colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
-            endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
-            bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
-            zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
-            regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
-            observacao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
-            
-
-        });
-        
         jCadastro.setModel(dtmEleitores);
         
     }
@@ -140,7 +86,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         zona = new javax.swing.JComboBox<>();
         regiao = new javax.swing.JComboBox<>();
         btDeletar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btAlterar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         secao = new javax.swing.JTextField();
@@ -167,6 +113,16 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCadastroMouseClicked(evt);
+            }
+        });
+        jCadastro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jCadastroKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(jCadastro);
@@ -327,7 +283,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                             .addComponent(colaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(alcance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel16))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -345,18 +301,16 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         regiao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "1", "2", "3", "4", "5", "6", "7" }));
 
         btDeletar.setText("Deletar");
-        btDeletar.setEnabled(false);
         btDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btDeletarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Alterar");
-        jButton3.setEnabled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btAlterar.setText("Alterar");
+        btAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btAlterarActionPerformed(evt);
             }
         });
 
@@ -386,7 +340,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jButton3)
+                                        .addComponent(btAlterar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btDeletar))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -444,9 +398,9 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(btAlterar)
                     .addComponent(btDeletar))
                 .addContainerGap())
         );
@@ -464,11 +418,11 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -478,43 +432,106 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+        Eleitor eleitor = new Eleitor(
+                   nome.getText()        , nascimento.getText()    , funcionario.getSelectedItem().toString(), 
+                   email.getText()       , telefone1.getText()     , telefone2.getText(), 
+                   voto.getSelectedItem().toString(), pleito.getText()        , colaborador.getText(), 
+                   endereco.getText()    , bairro.getSelectedItem().toString(), observacao.getText(),
+                   zona.getSelectedItem().toString(), regiao.getSelectedItem().toString(), Integer.parseInt(lbID.getText()));
+        
+        
+        EleitorDAO eleitorDao = new EleitorDAO();
+        
+        eleitorDao.update(eleitor);
+        
+        jCadastro.setValueAt(nome.getText()                              , jCadastro.getSelectedRow(), 1);
+        jCadastro.setValueAt(nascimento.getText()                        , jCadastro.getSelectedRow(), 2);
+        jCadastro.setValueAt(funcionario.getSelectedItem()               , jCadastro.getSelectedRow(), 3);
+        jCadastro.setValueAt(email.getText()                             , jCadastro.getSelectedRow(), 4);
+        jCadastro.setValueAt(telefone1.getText()                         , jCadastro.getSelectedRow(), 5);
+        jCadastro.setValueAt(telefone2.getText()                         , jCadastro.getSelectedRow(), 6);
+        jCadastro.setValueAt(voto.getSelectedItem()                      , jCadastro.getSelectedRow(), 7);
+        jCadastro.setValueAt(pleito.getText()                            , jCadastro.getSelectedRow(), 8);
+        jCadastro.setValueAt(colaborador.getText()                       , jCadastro.getSelectedRow(), 9);
+        jCadastro.setValueAt(endereco.getText()                          , jCadastro.getSelectedRow(), 10);
+        jCadastro.setValueAt(bairro.getSelectedItem()                    , jCadastro.getSelectedRow(), 11);
+        jCadastro.setValueAt(zona.getSelectedItem()                      , jCadastro.getSelectedRow(), 12);
+        jCadastro.setValueAt(regiao.getSelectedItem()                    , jCadastro.getSelectedRow(), 13);
+        jCadastro.setValueAt(observacao.getText()                        , jCadastro.getSelectedRow(), 14);
+        
+        
+        
+    }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDeletarActionPerformed
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        EleitorDAO eleitorDAO = new EleitorDAO(conexaoSQLite);
-        DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-        
-        
-        refreshTable();
-        
-        
-//        System.out.println(selectedRow);
-//        try{
-//            dtmEleitores.removeRow(Integer.parseInt(lbID.getText()));
-//        }catch(ArrayIndexOutOfBoundsException e){
-//            System.out.println(e.getMessage());
-//        }
-//        System.out.println(selectedRow);
-//        eleitorDAO.delete(Integer.parseInt(lbID.getText()));
-//        this.revalidate();
-        
-
-
+        EleitorDAO eleitorDAO = new EleitorDAO();
+        dtmEleitores = (DefaultTableModel) jCadastro.getModel();
+        eleitorDAO.delete(jCadastro.getSelectedRow());
+        dtmEleitores.removeRow(jCadastro.getSelectedRow());
     }//GEN-LAST:event_btDeletarActionPerformed
+
+    private void jCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCadastroMouseClicked
+        lbID.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 0).toString());
+        nome.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 1).toString());;
+        nascimento.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 2).toString());
+        funcionario.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 3).toString());
+        email.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 4).toString());
+        telefone1.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 5).toString());
+
+        String tel2 = jCadastro.getValueAt(jCadastro.getSelectedRow(), 6).toString();
+        if(!tel2.equals("(  )      -    ")){
+            telefone2.setText(tel2);
+        }else{
+            telefone2.setText("(00) 00000-0000");
+        }
+        voto.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 7).toString());
+        pleito.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 8).toString());
+        colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
+        endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
+        bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
+        zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
+        regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
+        observacao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
+    }//GEN-LAST:event_jCadastroMouseClicked
+
+    private void jCadastroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCadastroKeyReleased
+        // TODO add your handling code here:
+        lbID.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 0).toString());
+        nome.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 1).toString());;
+        nascimento.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 2).toString());
+        funcionario.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 3).toString());
+        email.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 4).toString());
+        telefone1.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 5).toString());
+
+        String tel2 = jCadastro.getValueAt(jCadastro.getSelectedRow(), 6).toString();
+        if(!tel2.equals("(  )      -    ")){
+            telefone2.setText(tel2);
+        }else{
+            telefone2.setText("(00) 00000-0000");
+        }
+        voto.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 7).toString());
+        pleito.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 8).toString());
+        colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
+        endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
+        bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
+        zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
+        regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
+        observacao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
+    }//GEN-LAST:event_jCadastroKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> alcance;
     private javax.swing.JComboBox<String> bairro;
+    private javax.swing.JButton btAlterar;
     private javax.swing.JButton btDeletar;
     private javax.swing.JTextField colaborador;
     private javax.swing.JTextField email;
     private javax.swing.JTextField endereco;
     private javax.swing.JComboBox<String> funcionario;
-    private javax.swing.JButton jButton3;
     private javax.swing.JTable jCadastro;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;

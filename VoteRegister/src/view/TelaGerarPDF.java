@@ -5,7 +5,7 @@
  */
 package view;
 
-import Classes.Eleitor;
+import Entidades.Eleitor;
 import ConexaoBD.ConexaoSQLite;
 import ConexaoBD.EleitorDAO;
 import java.util.ArrayList;
@@ -31,11 +31,9 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
     public TelaGerarPDF() {
         initComponents();
         
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        
         DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
         
-        EleitorDAO eleitorDAO = new EleitorDAO(conexaoSQLite);
+        EleitorDAO eleitorDAO = new EleitorDAO();
         
         eleitores = eleitorDAO.getEleitores();
         

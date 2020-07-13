@@ -5,7 +5,7 @@
  */
 package view;
 
-import Classes.Usuario;
+import Entidades.Usuario;
 import ConexaoBD.ConexaoSQLite;
 import ConexaoBD.EleitorDAO;
 import ConexaoBD.UsuarioDAO;
@@ -31,7 +31,7 @@ public class TelaLogin extends javax.swing.JDialog {
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         
             
-        UsuarioDAO dao = new UsuarioDAO(conexaoSQLite);
+        UsuarioDAO dao = new UsuarioDAO();
         
         return dao.checkUser(login, senha) >= 1;
 
@@ -47,8 +47,8 @@ public class TelaLogin extends javax.swing.JDialog {
         
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         
-        EleitorDAO eleitorDao = new EleitorDAO(conexaoSQLite);
-        UsuarioDAO usuarioDao = new UsuarioDAO(conexaoSQLite);
+        EleitorDAO eleitorDao = new EleitorDAO();
+        UsuarioDAO usuarioDao = new UsuarioDAO();
         
         eleitorDao.criarTabela();
         usuarioDao.criarTabela();

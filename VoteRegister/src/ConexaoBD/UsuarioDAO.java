@@ -5,15 +5,12 @@
  */
 package ConexaoBD;
 
-import Classes.Eleitor;
-import Classes.Usuario;
+import Entidades.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -22,8 +19,8 @@ import java.util.logging.Logger;
 public class UsuarioDAO {
     private final ConexaoSQLite conexaoSQLite;
 
-    public UsuarioDAO(ConexaoSQLite pConexaoSQLite) {
-        this.conexaoSQLite = pConexaoSQLite;
+    public UsuarioDAO() {
+        this.conexaoSQLite = new ConexaoSQLite();
     }
 
     public void criarTabela() {
@@ -57,8 +54,7 @@ public class UsuarioDAO {
         }
 
     }
-    
-    
+     
     public ArrayList<Usuario> getEleitores(){
 
         ResultSet resultSet = null;

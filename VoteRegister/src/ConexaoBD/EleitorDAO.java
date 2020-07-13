@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,8 +7,7 @@ package ConexaoBD;
 
 import java.sql.SQLException;
 import java.sql.Statement;
-import Classes.Eleitor;
-import java.sql.Connection;
+import Entidades.Eleitor;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -20,8 +19,8 @@ import java.util.ArrayList;
 public class EleitorDAO {
     private final ConexaoSQLite conexaoSQLite;
 
-    public EleitorDAO(ConexaoSQLite pConexaoSQLite) {
-        this.conexaoSQLite = pConexaoSQLite;
+    public EleitorDAO() {
+        this.conexaoSQLite = new ConexaoSQLite();
     }
 
     public void criarTabela() {
@@ -67,8 +66,7 @@ public class EleitorDAO {
         }
 
     }
-    
-    
+     
     public ArrayList<Eleitor> getEleitores(){
 
         ResultSet resultSet = null;
@@ -127,6 +125,7 @@ public class EleitorDAO {
                 " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         boolean conectou = false;
+        conectou = conexaoSQLite.conectar();
         try {
             PreparedStatement pstmt = this.conexaoSQLite.criarPreparedStatement(sql);
             pstmt.setString(1, eleitor.getNome());
@@ -149,12 +148,14 @@ public class EleitorDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }finally{
+            if(conectou){
+                conexaoSQLite.desconectar();
+            }
         }
     }
     
-    
-    
-        public void delete(int id){
+    public void delete(int id){
         
         Statement statement = null;
         
@@ -173,6 +174,40 @@ public class EleitorDAO {
         }
     }
 
+    public void update(Eleitor eleitor){
+        String sql = 
+                "UPDATE tbl_eleitor SET "
+                + "nome = '" + eleitor.getNome()+ "', "
+                + "nascimento = '" + eleitor.getNascimento() + "', "
+                + "funcionario = '"+ eleitor.getFuncionario() +"', "
+                + "email = '" + eleitor.getEmail() + "', "
+                + "telefone1 = '" + eleitor.getTelefone1() + "', "
+                + "telefone2 = '" + eleitor.getTelefone2() + "', "
+                + "voto = '" + eleitor.getVoto() + "', "
+                + "pleito = '" + eleitor.getPleito() + "', "
+                + "colaborador = '" + eleitor.getColaborador() + "', "
+                + "endereco = '" + eleitor.getEndereco() + "', "
+                + "bairro = '" + eleitor.getBairro() + "', "
+                + "zona = '" + eleitor.getZona() + "', "
+                + "regiao = '" + eleitor.getRegiao() + "', "
+                + "observacao  = '" + eleitor.getObservacao() + "' "
+                + "WHERE id = " + eleitor.getId() + ";";
+
+        boolean conectou = false;
+        conectou = conexaoSQLite.conectar();
+        try {
+            System.out.println(sql);
+            PreparedStatement pstmt = this.conexaoSQLite.criarPreparedStatement(sql);
+ 
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }finally{
+            if(conectou){
+                conexaoSQLite.desconectar();
+            }
+        }
+    }
 }
 
 
