@@ -41,7 +41,9 @@ public class EleitorDAO {
                 + "bairro text,"
                 + "zona text,"
                 + "regiao text,"
-                + "observacao text"
+                + "observacao text,"
+                + "secao text,"
+                + "alcance text"
                 + " );";
 
         //executando o sql de criar tabelas
@@ -99,7 +101,9 @@ public class EleitorDAO {
                         resultSet.getString("observacao"), 
                         resultSet.getString("zona"), 
                         resultSet.getString("regiao"), 
-                        resultSet.getInt("id"))); 
+                        resultSet.getInt("id"),
+                        resultSet.getString("secao"),
+                        resultSet.getString("alcance"))); 
  
             }
             return Eleitores;
@@ -121,8 +125,8 @@ public class EleitorDAO {
     public void insert(Eleitor eleitor) {
         String sql = "INSERT INTO tbl_eleitor ( nome ,nascimento,"+
                 " funcionario, email, telefone1, telefone2, voto, pleito,"+
-                " colaborador, endereco, bairro, zona, regiao, observacao)"+
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                " colaborador, endereco, bairro, zona, regiao, observacao, secao, alcance)"+
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         boolean conectou = false;
         conectou = conexaoSQLite.conectar();
@@ -142,6 +146,8 @@ public class EleitorDAO {
             pstmt.setString(12, eleitor.getZona());
             pstmt.setString(13, eleitor.getRegiao());
             pstmt.setString(14, eleitor.getObservacao());
+            pstmt.setString(15, eleitor.getSecao());
+            pstmt.setString(16, eleitor.getAlcance());
             
             
             
@@ -190,7 +196,9 @@ public class EleitorDAO {
                 + "bairro = '" + eleitor.getBairro() + "', "
                 + "zona = '" + eleitor.getZona() + "', "
                 + "regiao = '" + eleitor.getRegiao() + "', "
-                + "observacao  = '" + eleitor.getObservacao() + "' "
+                + "observacao  = '" + eleitor.getObservacao() + "', "
+                + "secao  = '" + eleitor.getSecao() + "', "
+                + "alcance  = '" + eleitor.getAlcance() + "' "
                 + "WHERE id = " + eleitor.getId() + ";";
 
         boolean conectou = false;

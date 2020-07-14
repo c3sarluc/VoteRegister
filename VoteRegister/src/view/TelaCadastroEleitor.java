@@ -7,7 +7,6 @@ package view;
 
 import javax.swing.table.DefaultTableModel;
 import Entidades.Eleitor;
-import ConexaoBD.ConexaoSQLite;
 import ConexaoBD.EleitorDAO;
 import javax.swing.JOptionPane;
 
@@ -80,7 +79,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Regional"
+                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Região", "Seção", "Alcance"
             }
         ));
         jScrollPane1.setViewportView(jCadastro);
@@ -226,7 +225,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Zona");
 
-        jLabel12.setText("Regional");
+        jLabel12.setText("Região");
 
         bairro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "FORA DO MUNICÍPIO", "BARRA DE JANGADA", "ALTO DA UNIÃO", "ALTO DO CEMITERIO", "ARITANA", "BORBOREMA", "BULHÕES", "CAJÁ", "CAJUEIRO SECO ", "CANDEIAS ", "CASCATA ", "CAVALEIRO", "CENTRO ", "COLÔNIA DOS PADRES ", "COMPORTA", "CORREGO DA BATALHA", "CORREGO DA ROSA", "CURADO", "CURADO I", "CURADO II", "CURADO III", "CURADO IV", "CURCURANA", "DISTRITO INDUSTRIAL", "DOIS CARNEIROS", "DUAS UNAS", "ENGENHO CORVETA", "ENGENHO MACUJÉ", "ENGENHO MEGALP", "ENGENHO PALMEIRA", "ENGENHO SACUPEMA", "ENGENHO VELHO", "ENTRE RIOS", "FLORIANO", "GAMELEIRA", "GENERAL DERBY", "GOIABEIRA", "GUARARAPES", "JABOATÃO CENTRO", "JARDIM JORDÃO", "JARDIM PIEDADE", "JARDIM SANTO ANDRÉ", "LORETO ", "LOTE 19 ", "LOTE 31 ", "LOTE 56 ", "LOTE 92 ", "LOTEAMENTO BOLA DE OURO ", "LOTEAMENTO COVA DA ONÇA ", "LOTEAMENTO EDMAR DE OLIVEIRA ", "LOTEAMENTO GRANDE RECIFE ", "LOTEAMENTO SANTA HELENA ", "LOTEAMENTO SANTA INÊS ", "LOTEAMENTO SANTA JOANA ", "LOTEAMENTO SÃO CRISTOVÃO ", "LOTEAMENTO SÃO FRANCISCO ", "LOTEAMENTO SONHO VERDE ", "LOTEAMENTO VILA RICA ", "MANASSU ", "MARCOS FREIRE ", "MASSANGANA ", "MASSARANDUBA ", "MOEDA DE BRONZE ", "MURIBECA ", "MURIBEQUINHA ", "PARQUE SANTANA ", "PIEDADE ", "PORTA LARGA ", "PRAIAS ", "PRAZERES ", "RIO DAS VELHAS ", "SANTANA ", "SANTO ALEIXO ", "SANTO ANDRÉ ", "SÃO JOSÉ ", "SOCORRO ", "SOTAVE ", "SUCUPIRA ", "TERRA MAR ", "TRÊS CARNEIROS ", "UR-10", "UR-11 ", "UR-6 ", "VARGEM FRIA ", "VILA MARIO GOUVEIA ", "VILA NESTLÉ ", "VILA RICA ", "VISTA ALEGRE ", "ZUMBI DO PACHECO", " " }));
 
@@ -406,7 +405,9 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),
             email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),
             pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),
-            observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
+            observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(),
+            secao.getText(), alcance.getSelectedItem().toString()
+        };
         
         EleitorDAO dao = new EleitorDAO();
         
@@ -417,7 +418,8 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                email.getText(),telefone1.getText(),telefone2.getText(),
                voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
                endereco.getText(),bairro.getSelectedItem().toString(), observacao.getText(),
-               zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0 
+               zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0,
+               secao.getText(), alcance.getSelectedItem().toString()
         );  
         
              System.out.println(observacao.getText());

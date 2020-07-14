@@ -25,12 +25,7 @@ public class TelaLogin extends javax.swing.JDialog {
      */
     public String login;
     
-    public boolean checkLogin(String login, String senha){
-        
-        
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        
-            
+    public boolean checkLogin(String login, String senha){       
         UsuarioDAO dao = new UsuarioDAO();
         
         return dao.checkUser(login, senha) >= 1;
@@ -45,8 +40,6 @@ public class TelaLogin extends javax.swing.JDialog {
         initComponents();
         this.setDefaultCloseOperation(0);
         
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        
         EleitorDAO eleitorDao = new EleitorDAO();
         UsuarioDAO usuarioDao = new UsuarioDAO();
         
@@ -54,9 +47,7 @@ public class TelaLogin extends javax.swing.JDialog {
         usuarioDao.criarTabela();
         
         if(usuarioDao.checkUser("menezes", "2020") < 1){
-            conexaoSQLite.conectar();
             usuarioDao.insert(new Usuario("menezes", "2020", 0));
-            conexaoSQLite.desconectar();
         }
         
         
