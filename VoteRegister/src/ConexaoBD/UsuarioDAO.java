@@ -101,12 +101,17 @@ public class UsuarioDAO {
 
         boolean conectou = false;
         try {
+            conectou = this.conexaoSQLite.conectar();
             PreparedStatement pstmt = this.conexaoSQLite.criarPreparedStatement(sql);
             pstmt.setString(1, usuario.getLogin());
             pstmt.setString(2, String.valueOf(usuario.getHashSenha().hashCode()));
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }finally{
+            if(conectou){
+                this.conexaoSQLite.desconectar();
+            }
         }
     }
 

@@ -6,7 +6,6 @@
 package view;
 
 import Entidades.Eleitor;
-import ConexaoBD.ConexaoSQLite;
 import ConexaoBD.EleitorDAO;
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -383,7 +382,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
 
-                String path="";
+        String path="";
         JFileChooser j= new JFileChooser();
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int x=j.showSaveDialog(this);

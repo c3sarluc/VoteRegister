@@ -25,12 +25,15 @@ public class Eleitor {
     private String zona;
     private String regiao;
     private String observacao;
+    private String secao;
+    private String alcance;
 
     public Eleitor(String nome,     String nascimento, String funcionario, 
                    String email,    String telefone1,  String telefone2, 
                    String voto,     String pleito,     String colaborador, 
                    String endereco, String bairro,     String observacao,
-                   String zona,     String regiao,     int id)
+                   String zona,     String regiao,     int id,
+                   String secao,    String alcance)
     {
         this.id = id;
         this.nome = nome;
@@ -47,6 +50,8 @@ public class Eleitor {
         this.bairro = bairro;
         this.zona = zona;
         this.regiao = regiao;
+        this.secao = secao;
+        this.alcance = alcance;
         
     }
 
@@ -172,14 +177,26 @@ public class Eleitor {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
-    
-    
+
+    public String getSecao() {
+        return secao;
+    }
+
+    public void setSecao(String secao) {
+        this.secao = secao;
+    }
+
+    public String getAlcance() {
+        return alcance;
+    }
+
+    public void setAlcance(String alcance) {
+        this.alcance = alcance;
+    }
 
     @Override
     public String toString() {
-        return "Eleitor{" + "id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + ", funcionario=" + funcionario + ", email=" + email + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", voto=" + voto + ", pleito=" + pleito + ", colaborador=" + colaborador + ", endereco=" + endereco + ", bairro=" + bairro + ", observação=" + observacao +", zona=" + zona + ", regiao=" + regiao + '}';
-    }
-    
-    
+        return "Eleitor{" + "id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + ", funcionario=" + funcionario + ", email=" + email + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", voto=" + voto + ", pleito=" + pleito + ", colaborador=" + colaborador + ", endereco=" + endereco + ", bairro=" + bairro + ", zona=" + zona + ", regiao=" + regiao + ", observacao=" + observacao + ", secao=" + secao + ", alcance=" + alcance + '}';
+    }  
     
 }

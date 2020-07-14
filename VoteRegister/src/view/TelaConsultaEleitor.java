@@ -18,6 +18,32 @@ import javax.swing.table.DefaultTableModel;
 public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
     
     private DefaultTableModel dtmEleitores;
+    
+    private void atualizarCampos(){
+        lbID.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 0).toString());
+        nome.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 1).toString());;
+        nascimento.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 2).toString());
+        funcionario.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 3).toString());
+        email.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 4).toString());
+        telefone1.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 5).toString());
+
+        String tel2 = jCadastro.getValueAt(jCadastro.getSelectedRow(), 6).toString();
+        if(!tel2.equals("(  )      -    ")){
+            telefone2.setText(tel2);
+        }else{
+            telefone2.setText("(00) 00000-0000");
+        }
+        voto.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 7).toString());
+        pleito.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 8).toString());
+        colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
+        endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
+        bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
+        zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
+        regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
+        observacao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
+        secao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 15).toString());
+        alcance.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 16).toString());
+    }
    
     public TelaConsultaEleitor() {
         
@@ -33,7 +59,9 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                               s.getId(), s.getNome(), s.getNascimento(), s.getFuncionario(),
                               s.getEmail(),s.getTelefone1(),s.getTelefone2(),
                               s.getVoto(),s.getPleito(),s.getColaborador(),
-                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao()};
+                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao(),
+                              s.getSecao(), s.getAlcance()
+            };
             dtmEleitores.addRow(dados);
         }; 
         eleitores.stream().forEach(consumer);
@@ -104,11 +132,11 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "id", "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Zona", "Região", "Observação"
+                "id", "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Zona", "Região", "Observação", "Seção", "Alcance"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -440,7 +468,9 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                    email.getText()       , telefone1.getText()     , telefone2.getText(), 
                    voto.getSelectedItem().toString(), pleito.getText()        , colaborador.getText(), 
                    endereco.getText()    , bairro.getSelectedItem().toString(), observacao.getText(),
-                   zona.getSelectedItem().toString(), regiao.getSelectedItem().toString(), Integer.parseInt(lbID.getText()));
+                   zona.getSelectedItem().toString(), regiao.getSelectedItem().toString(), Integer.parseInt(lbID.getText()),
+                   secao.getText(), alcance.getSelectedItem().toString()
+        );
         
         
         EleitorDAO eleitorDao = new EleitorDAO();
@@ -461,6 +491,8 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         jCadastro.setValueAt(zona.getSelectedItem()                      , jCadastro.getSelectedRow(), 12);
         jCadastro.setValueAt(regiao.getSelectedItem()                    , jCadastro.getSelectedRow(), 13);
         jCadastro.setValueAt(observacao.getText()                        , jCadastro.getSelectedRow(), 14);
+        jCadastro.setValueAt(secao.getText()                             , jCadastro.getSelectedRow(), 15);
+        jCadastro.setValueAt(alcance.getSelectedItem().toString()        , jCadastro.getSelectedRow(), 16);
         
         
         
@@ -474,52 +506,12 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btDeletarActionPerformed
 
     private void jCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCadastroMouseClicked
-        lbID.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 0).toString());
-        nome.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 1).toString());;
-        nascimento.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 2).toString());
-        funcionario.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 3).toString());
-        email.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 4).toString());
-        telefone1.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 5).toString());
-
-        String tel2 = jCadastro.getValueAt(jCadastro.getSelectedRow(), 6).toString();
-        if(!tel2.equals("(  )      -    ")){
-            telefone2.setText(tel2);
-        }else{
-            telefone2.setText("(00) 00000-0000");
-        }
-        voto.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 7).toString());
-        pleito.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 8).toString());
-        colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
-        endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
-        bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
-        zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
-        regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
-        observacao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
+        this.atualizarCampos();
     }//GEN-LAST:event_jCadastroMouseClicked
 
     private void jCadastroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCadastroKeyReleased
         // TODO add your handling code here:
-        lbID.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 0).toString());
-        nome.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 1).toString());;
-        nascimento.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 2).toString());
-        funcionario.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 3).toString());
-        email.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 4).toString());
-        telefone1.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 5).toString());
-
-        String tel2 = jCadastro.getValueAt(jCadastro.getSelectedRow(), 6).toString();
-        if(!tel2.equals("(  )      -    ")){
-            telefone2.setText(tel2);
-        }else{
-            telefone2.setText("(00) 00000-0000");
-        }
-        voto.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 7).toString());
-        pleito.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 8).toString());
-        colaborador.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 9).toString());
-        endereco.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 10).toString());
-        bairro.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 11).toString());
-        zona.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 12).toString());
-        regiao.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 13).toString());
-        observacao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
+        this.atualizarCampos();
     }//GEN-LAST:event_jCadastroKeyReleased
 
 

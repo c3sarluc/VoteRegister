@@ -7,7 +7,6 @@ package view;
 
 import javax.swing.table.DefaultTableModel;
 import Entidades.Eleitor;
-import ConexaoBD.ConexaoSQLite;
 import ConexaoBD.EleitorDAO;
 import javax.swing.JOptionPane;
 
@@ -80,7 +79,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Região"
+                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Região", "Seção", "Alcance"
             }
         ));
         jScrollPane1.setViewportView(jCadastro);
@@ -406,7 +405,9 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
         Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),
             email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),
             pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),
-            observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
+            observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(),
+            secao.getText(), alcance.getSelectedItem().toString()
+        };
         
         EleitorDAO dao = new EleitorDAO();
         
@@ -417,7 +418,8 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                email.getText(),telefone1.getText(),telefone2.getText(),
                voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
                endereco.getText(),bairro.getSelectedItem().toString(), observacao.getText(),
-               zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0 
+               zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0,
+               secao.getText(), alcance.getSelectedItem().toString()
         );  
         
              System.out.println(observacao.getText());
