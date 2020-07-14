@@ -7,9 +7,10 @@ package Entidades;
 
 /**
  *
- * @author arthu
+ * @author aluno
  */
-public class Eleitor {
+public class Colaborador {
+    
     private int    id;
     private String nome;
     private String nascimento;
@@ -19,7 +20,6 @@ public class Eleitor {
     private String telefone2;
     private String voto;
     private String pleito;
-    private String colaborador;
     private String endereco;
     private String bairro;
     private String zona;
@@ -28,9 +28,9 @@ public class Eleitor {
     private String secao;
     private String alcance;
 
-    public Eleitor(String nome,     String nascimento, String funcionario, 
+    public Colaborador(String nome,     String nascimento, String funcionario, 
                    String email,    String telefone1,  String telefone2, 
-                   String voto,     String pleito,     String colaborador, 
+                   String voto,     String pleito,
                    String endereco, String bairro,     String observacao,
                    String zona,     String regiao,     int id,
                    String secao,    String alcance)
@@ -44,7 +44,6 @@ public class Eleitor {
         this.telefone2 = telefone2;
         this.voto = voto;
         this.pleito = pleito;
-        this.colaborador = colaborador;
         this.endereco = endereco;
         this.observacao = observacao;
         this.bairro = bairro;
@@ -53,10 +52,6 @@ public class Eleitor {
         this.secao = secao;
         this.alcance = alcance;
         
-    }
-
-    public Eleitor(String string, String string0, String string1, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, int aInt, String string12, String string13) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
@@ -123,14 +118,6 @@ public class Eleitor {
 
     public void setPleito(String pleito) {
         this.pleito = pleito;
-    }
-
-    public String getColaborador() {
-        return colaborador;
-    }
-
-    public void setColaborador(String colaborador) {
-        this.colaborador = colaborador;
     }
 
     public String getEndereco() {
@@ -200,7 +187,11 @@ public class Eleitor {
 
     @Override
     public String toString() {
-        return "Eleitor{" + "id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + ", funcionario=" + funcionario + ", email=" + email + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", voto=" + voto + ", pleito=" + pleito + ", colaborador=" + colaborador + ", endereco=" + endereco + ", bairro=" + bairro + ", zona=" + zona + ", regiao=" + regiao + ", observacao=" + observacao + ", secao=" + secao + ", alcance=" + alcance + '}';
-    }  
+        return "Colaborador {" + "id=" + id + ", nome=" + nome + ", nascimento=" + nascimento + ", funcionario=" + funcionario + ", email=" + email + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", voto=" + voto + ", pleito=" + pleito + ", endereco=" + endereco + ", bairro=" + bairro + ", zona=" + zona + ", regiao=" + regiao + ", observacao=" + observacao + ", secao=" + secao + ", alcance=" + alcance + '}';
+    }
+    
+    
+    
+    
     
 }
