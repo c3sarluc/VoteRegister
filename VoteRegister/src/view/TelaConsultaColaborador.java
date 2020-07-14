@@ -77,7 +77,7 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "id", "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Zona", "Região", "Observação"
+                "id", "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Zona", "Regional", "Observação"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -255,7 +255,7 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Zona");
 
-        jLabel12.setText("Região");
+        jLabel12.setText("Regional");
 
         zona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "11", "101", "118", "147" }));
 

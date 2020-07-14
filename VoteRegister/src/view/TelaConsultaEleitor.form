@@ -597,7 +597,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Regi&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Regional"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="endereco">

@@ -403,15 +403,17 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
             
             Consumer<Eleitor> consumer = s -> { 
                 
+                
                 try {   
-                    doc.add(new Paragraph(s.getNome()));
-                    doc.add(new Paragraph("Nascimento: " + s.getNome() + "  Funcionario:" + s.getFuncionario()));
-                    doc.add(new Paragraph("E-mail: " + s.getEmail()+ "  Telefone1:" + s.getTelefone1() + "  Telefone1:" +  s.getTelefone2()));
-                    doc.add(new Paragraph("Voto: " + s.getVoto() + "  Pleito:" + s.getPleito()+ "  Colaborador:" + s.getColaborador()));
+                    doc.add(new Paragraph("Nome: "+s.getNome()));
+                    doc.add(new Paragraph("Data de Nascimento: " + s.getNascimento() + "         Funcionario: " + s.getFuncionario()));
+                    doc.add(new Paragraph("E-mail: " + s.getEmail()+ "  Telefone 1: " + s.getTelefone1() + "  Telefone 2: " +  s.getTelefone2()));
+                    doc.add(new Paragraph("Voto: " + s.getVoto() + "      Pleito: " + s.getPleito()+ "      Colaborador: " + s.getColaborador()));
                     doc.add(new Paragraph("Endereço: " + s.getEndereco()));
-                    doc.add(new Paragraph("Bairro: " + s.getBairro() + "  Zona:" + s.getZona()));
-                    doc.add(new Paragraph("Região: " + s.getRegiao() + "  Observação:" + s.getObservacao()));
-                    doc.add(new Paragraph("-----------------------------------------------------------------------------------------------"));
+                    doc.add(new Paragraph("Bairro: " + s.getBairro() + "   Zona: " + s.getZona() + "   Regional: " + s.getRegiao()));
+                    doc.add(new Paragraph("Observação: " + s.getObservacao()));
+                    doc.add(new Paragraph("_____________________________________________________________________________"));
+
                 } catch (DocumentException ex) {
                     Logger.getLogger(TelaGerarPDF.class.getName()).log(Level.SEVERE, null, ex);
                 }

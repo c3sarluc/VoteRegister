@@ -294,7 +294,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Zona");
 
-        jLabel12.setText("Região");
+        jLabel12.setText("Regional");
 
         zona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "11", "101", "118", "147" }));
 
