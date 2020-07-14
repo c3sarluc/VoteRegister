@@ -5,7 +5,12 @@
  */
 package view;
 
+import ConexaoBD.ColaboradorDAO;
+import ConexaoBD.EleitorDAO;
+import Entidades.Colaborador;
+import Entidades.Eleitor;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -383,34 +388,32 @@ public class TelaCadastroColaborador extends javax.swing.JInternalFrame {
         }
         else{
 
-//            DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
-//            Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),
-//                email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),
-//                pleito.getText(),colaborador.getText(),endereco.getText(),bairro.getSelectedItem().toString(),
-//                observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString()};
-//
-//            ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-//
-//            EleitorDAO dao = new EleitorDAO(conexaoSQLite);
-//
-//            dao.criarTabela();
-//
-//            Eleitor eleitor = new Eleitor(
-//                nome.getText(), nascimento.getText(), funcionario.getSelectedItem().toString(),
-//                email.getText(),telefone1.getText(),telefone2.getText(),
-//                voto.getSelectedItem().toString(),pleito.getText(),colaborador.getText(),
-//                endereco.getText(),bairro.getSelectedItem().toString(), observacao.getText(),
-//                zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0
-//            );
-//
-//            System.out.println(observacao.getText());
-//            System.out.println(eleitor);
-//
-//            conexaoSQLite.conectar();
-//            dao.insert(eleitor);
-//            conexaoSQLite.desconectar();
-//
-//            dtmEleitores.addRow(dados);
+        DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
+        
+        Object[] dados = {nome.getText(),nascimento.getText(),funcionario.getSelectedItem().toString(),
+            email.getText(),telefone1.getText(),telefone2.getText(),voto.getSelectedItem().toString(),
+            pleito.getText(),endereco.getText(),bairro.getSelectedItem().toString(),
+            observacao.getText(),zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(),
+            secao.getText(), alcance.getSelectedItem().toString()
+        };
+        
+        ColaboradorDAO colaboradorDao = new ColaboradorDAO();
+        
+        colaboradorDao.criarTabela();
+        
+        Colaborador colaborador = new Colaborador(
+               nome.getText(), nascimento.getText(), funcionario.getSelectedItem().toString(),
+               email.getText(),telefone1.getText(),telefone2.getText(),
+               voto.getSelectedItem().toString(),pleito.getText(),
+               endereco.getText(),bairro.getSelectedItem().toString(), observacao.getText(),
+               zona.getSelectedItem().toString(),regiao.getSelectedItem().toString(), 0,
+               secao.getText(), alcance.getSelectedItem().toString()
+        );   
+
+        colaboradorDao.insert(colaborador);
+        
+        
+        dtmEleitores.addRow(dados);
 
         }
 

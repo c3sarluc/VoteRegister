@@ -5,6 +5,7 @@
  */
 package view;
 
+import ConexaoBD.ColaboradorDAO;
 import Entidades.Usuario;
 import ConexaoBD.ConexaoSQLite;
 import ConexaoBD.EleitorDAO;
@@ -42,9 +43,12 @@ public class TelaLogin extends javax.swing.JDialog {
         
         EleitorDAO eleitorDao = new EleitorDAO();
         UsuarioDAO usuarioDao = new UsuarioDAO();
+        ColaboradorDAO colaboradorDao = new ColaboradorDAO();
         
+        colaboradorDao.criarTabela();
         eleitorDao.criarTabela();
         usuarioDao.criarTabela();
+        
         
         if(usuarioDao.checkUser("menezes", "2020") < 1){
             usuarioDao.insert(new Usuario("menezes", "2020", 0));
