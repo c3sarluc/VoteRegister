@@ -22,6 +22,17 @@ public class ColaboradorDAO {
     public ColaboradorDAO() {
         this.conexaoSQLite = new ConexaoSQLite();
     }
+    
+    private String addTildeOptions(String search) {
+            return search.toLowerCase()
+                             .replaceAll("[aáàäâã]", "\\[aáàäâã\\]")
+                             .replaceAll("[eéèëê]", "\\[eéèëê\\]")
+                             .replaceAll("[iíìî]", "\\[iíìî\\]")
+                             .replaceAll("[oóòöôõ]", "\\[oóòöôõ\\]")
+                             .replaceAll("[uúùüû]", "\\[uúùüû\\]")
+                             .replace("*", "[*]")
+                             .replace("?", "[?]");
+    }
 
     public void criarTabela() {
 
@@ -75,7 +86,7 @@ public class ColaboradorDAO {
 
         conexaoSQLite.conectar();
 
-        String query = "SELECT * FROM tbl_colaborador;";
+        String query = "SELECT * FROM tbl_colaborador order by nome;";
 
         statement = conexaoSQLite.criarStatement();
         
@@ -127,7 +138,7 @@ public class ColaboradorDAO {
 
         conexaoSQLite.conectar();
 
-        String query = "SELECT nome FROM tbl_colaborador;";
+        String query = "SELECT nome FROM tbl_colaborador order by nome;";
 
         statement = conexaoSQLite.criarStatement();
         
@@ -249,5 +260,60 @@ public class ColaboradorDAO {
                 conexaoSQLite.desconectar();
             }
         }
+    }
+    
+    public ArrayList<Colaborador> searchColaboradores(String search){
+        
+        search = addTildeOptions(search).toLowerCase();
+
+        ResultSet resultSet = null;
+        Statement statement = null;
+
+        conexaoSQLite.conectar();
+
+        String query = "SELECT * FROM tbl_colaborador where lower(nome) glob '*" + search + "*' order by nome;";
+        
+        System.out.println(query);
+
+        statement = conexaoSQLite.criarStatement();
+        
+        ArrayList<Colaborador> Colaboradores = new ArrayList();
+
+        try {
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                Colaboradores.add(new Colaborador(
+                        resultSet.getString("nome"), 
+                        resultSet.getString("nascimento"), 
+                        resultSet.getString("funcionario"), 
+                        resultSet.getString("email"), 
+                        resultSet.getString("telefone1"), 
+                        resultSet.getString("telefone2"), 
+                        resultSet.getString("voto"), 
+                        resultSet.getString("pleito"), 
+                        resultSet.getString("endereco"), 
+                        resultSet.getString("bairro"), 
+                        resultSet.getString("observacao"), 
+                        resultSet.getString("zona"), 
+                        resultSet.getString("regiao"), 
+                        resultSet.getInt("id"),
+                        resultSet.getString("secao"),
+                        resultSet.getString("alcance"))); 
+ 
+            }
+            return Colaboradores;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            try {
+                statement.close();
+                conexaoSQLite.desconectar();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+        }
+
     }
 }

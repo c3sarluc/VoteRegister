@@ -128,6 +128,10 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         observacao = new javax.swing.JTextArea();
         bairro = new javax.swing.JComboBox<>();
+        tfPesquisar = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        btPesquisar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -443,21 +447,58 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        jLabel18.setText("Nome:");
+
+        btPesquisar.setText("Pesquisar");
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btPesquisar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(btPesquisar)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -524,16 +565,42 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
         this.atualizarCampos();
     }//GEN-LAST:event_jCadastroKeyReleased
 
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        // TODO add your handling code here:
+        EleitorDAO eleitorDAO = new EleitorDAO();
+        DefaultTableModel dtm = (DefaultTableModel) jCadastro.getModel();
+        dtm.setRowCount(0);
+        ArrayList<Eleitor> eleitoresSearch = eleitorDAO.searchEleitores(tfPesquisar.getText());
+        eleitoresSearch.stream().forEach(s -> {
+            Object[] dados = {
+                              s.getId(), s.getNome(), s.getNascimento(), s.getFuncionario(),
+                              s.getEmail(),s.getTelefone1(),s.getTelefone2(),
+                              s.getVoto(),s.getPleito(),s.getColaborador(),
+                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao(),
+                              s.getSecao(), s.getAlcance()
+            };
+            dtmEleitores.addRow(dados);
+        });
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        tfPesquisar.setText("");
+        btPesquisar.doClick();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> alcance;
     private javax.swing.JComboBox<String> bairro;
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btDeletar;
+    private javax.swing.JButton btPesquisar;
     private javax.swing.JComboBox<String> colaborador;
     private javax.swing.JTextField email;
     private javax.swing.JTextField endereco;
     private javax.swing.JComboBox<String> funcionario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JTable jCadastro;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
@@ -545,6 +612,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -566,6 +634,7 @@ public class TelaConsultaEleitor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField secao;
     private javax.swing.JFormattedTextField telefone1;
     private javax.swing.JFormattedTextField telefone2;
+    private javax.swing.JTextField tfPesquisar;
     private javax.swing.JComboBox<String> voto;
     private javax.swing.JComboBox<String> zona;
     // End of variables declaration//GEN-END:variables

@@ -54,7 +54,7 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
         this.dtmColaboradores = (DefaultTableModel) jCadastro.getModel();
         ColaboradorDAO ColaboradorDAO = new ColaboradorDAO();
         
-        ArrayList<Colaborador> eleitores = ColaboradorDAO.getColaboradores();
+        ArrayList<Colaborador> Colaboradores = ColaboradorDAO.getColaboradores();
         
         Consumer<Colaborador> consumer = s -> { 
             Object[] dados = {
@@ -66,7 +66,7 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
             };
             dtmColaboradores.addRow(dados);
         }; 
-        eleitores.stream().forEach(consumer);
+        Colaboradores.stream().forEach(consumer);
             
         jCadastro.setModel(dtmColaboradores);
         
@@ -121,6 +121,10 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         observacao = new javax.swing.JTextArea();
         bairro = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        tfPesquisar = new javax.swing.JTextField();
+        btPesquisar = new javax.swing.JButton();
+        btLimpar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -425,21 +429,56 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel13.setText("Nome:");
+
+        btPesquisar.setText("Pesquisar");
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarActionPerformed(evt);
+            }
+        });
+
+        btLimpar.setText("Limpar");
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btPesquisar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btLimpar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btPesquisar)
+                    .addComponent(btLimpar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -502,12 +541,38 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
         atualizarCampos();
     }//GEN-LAST:event_jCadastroKeyReleased
 
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        // TODO add your handling code here:
+        ColaboradorDAO ColaboradorDAO = new ColaboradorDAO();
+        DefaultTableModel dtm = (DefaultTableModel) jCadastro.getModel();
+        dtm.setRowCount(0);
+        ArrayList<Colaborador> ColaboradoresSearch = ColaboradorDAO.searchColaboradores(tfPesquisar.getText());
+        ColaboradoresSearch.stream().forEach(s -> {
+            Object[] dados = {
+                              s.getId(), s.getNome(), s.getNascimento(), s.getFuncionario(),
+                              s.getEmail(),s.getTelefone1(),s.getTelefone2(),
+                              s.getVoto(),s.getPleito(),
+                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao(),
+                              s.getSecao(), s.getAlcance()
+            };
+            dtmColaboradores.addRow(dados);
+        });
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
+        // TODO add your handling code here:
+        tfPesquisar.setText("");
+        btPesquisar.doClick();
+    }//GEN-LAST:event_btLimparActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> alcance;
     private javax.swing.JComboBox<String> bairro;
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btDeletar;
+    private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btPesquisar;
     private javax.swing.JTextField email;
     private javax.swing.JTextField endereco;
     private javax.swing.JComboBox<String> funcionario;
@@ -516,6 +581,7 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -541,6 +607,7 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
     private javax.swing.JTextField secao;
     private javax.swing.JFormattedTextField telefone1;
     private javax.swing.JFormattedTextField telefone2;
+    private javax.swing.JTextField tfPesquisar;
     private javax.swing.JComboBox<String> voto;
     private javax.swing.JComboBox<String> zona;
     // End of variables declaration//GEN-END:variables

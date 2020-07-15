@@ -22,6 +22,17 @@ public class EleitorDAO {
     public EleitorDAO() {
         this.conexaoSQLite = new ConexaoSQLite();
     }
+    
+    private String addTildeOptions(String search) {
+            return search.toLowerCase()
+                             .replaceAll("[aáàäâã]", "\\[aáàäâã\\]")
+                             .replaceAll("[eéèëê]", "\\[eéèëê\\]")
+                             .replaceAll("[iíìî]", "\\[iíìî\\]")
+                             .replaceAll("[oóòöôõ]", "\\[oóòöôõ\\]")
+                             .replaceAll("[uúùüû]", "\\[uúùüû\\]")
+                             .replace("*", "[*]")
+                             .replace("?", "[?]");
+    }
 
     public void criarTabela() {
 
@@ -167,7 +178,7 @@ public class EleitorDAO {
         
         conexaoSQLite.conectar();
         
-        String sql = "Delete from tbl_eleitor where id = " + id + ";";
+        String sql = "Delete from tbl_eleitor where id = " + id + " order by nome;";
         
         statement = conexaoSQLite.criarStatement();
         
@@ -215,6 +226,62 @@ public class EleitorDAO {
                 conexaoSQLite.desconectar();
             }
         }
+    }
+    
+    public ArrayList<Eleitor> searchEleitores(String search){
+        
+        search = addTildeOptions(search).toLowerCase();
+
+        ResultSet resultSet = null;
+        Statement statement = null;
+
+        conexaoSQLite.conectar();
+
+        String query = "SELECT * FROM tbl_eleitor where lower(nome) glob '*" + search + "*' order by nome;";
+        
+        System.out.println(query);
+
+        statement = conexaoSQLite.criarStatement();
+        
+        ArrayList<Eleitor> Eleitores = new ArrayList();
+
+        try {
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                Eleitores.add(new Eleitor(
+                        resultSet.getString("nome"), 
+                        resultSet.getString("nascimento"), 
+                        resultSet.getString("funcionario"), 
+                        resultSet.getString("email"), 
+                        resultSet.getString("telefone1"), 
+                        resultSet.getString("telefone2"), 
+                        resultSet.getString("voto"), 
+                        resultSet.getString("pleito"), 
+                        resultSet.getString("colaborador"), 
+                        resultSet.getString("endereco"), 
+                        resultSet.getString("bairro"), 
+                        resultSet.getString("observacao"), 
+                        resultSet.getString("zona"), 
+                        resultSet.getString("regiao"), 
+                        resultSet.getInt("id"),
+                        resultSet.getString("secao"),
+                        resultSet.getString("alcance"))); 
+ 
+            }
+            return Eleitores;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            try {
+                statement.close();
+                conexaoSQLite.desconectar();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+        }
+
     }
 }
 
