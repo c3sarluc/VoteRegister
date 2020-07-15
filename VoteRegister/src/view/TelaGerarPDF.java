@@ -38,10 +38,10 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
         
         Consumer<Eleitor> consumer = s -> { 
             Object[] dados = {
-                              s.getId(), s.getNome(), s.getNascimento(), s.getFuncionario(),
+                              s.getNome(), s.getNascimento(), s.getFuncionario(),
                               s.getEmail(),s.getTelefone1(),s.getTelefone2(),
-                              s.getVoto(),s.getPleito(),s.getColaborador(),
-                              s.getEndereco(),s.getBairro(),s.getZona(),s.getRegiao(), s.getObservacao()};
+                              s.getVoto(),s.getPleito(),s.getAlcance(),s.getColaborador(),
+                              s.getEndereco(),s.getBairro(),s.getSecao(),s.getObservacao(),s.getZona(), s.getRegiao()};
             dtmEleitores.addRow(dados);
         }; 
         eleitores.stream().forEach(consumer);
@@ -107,7 +107,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Colaborador", "Endereço", "Bairro", "Observação", "Zona", "Região"
+                "Nome", "Data de Nascimento", "Funcionário", "E-mail", "Telefone - 1", "Telefone - 2", "Voto", "Pleito", "Alcance", "Colaborador", "Endereço", "Bairro", "Seção", "Observação", "Zona", "Região"
             }
         ));
         jScrollPane1.setViewportView(jCadastro);
@@ -405,11 +405,11 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
                 
                 try {   
                     doc.add(new Paragraph("Nome: "+s.getNome()));
-                    doc.add(new Paragraph("Data de Nascimento: " + s.getNascimento() + "         Funcionario: " + s.getFuncionario()));
+                    doc.add(new Paragraph("Data de Nascimento: " + s.getNascimento() + "  Funcionario: " + s.getFuncionario()));
                     doc.add(new Paragraph("E-mail: " + s.getEmail()+ "  Telefone 1: " + s.getTelefone1() + "  Telefone 2: " +  s.getTelefone2()));
-                    doc.add(new Paragraph("Voto: " + s.getVoto() + "      Pleito: " + s.getPleito()+ "      Colaborador: " + s.getColaborador()));
-                    doc.add(new Paragraph("Endereço: " + s.getEndereco()));
-                    doc.add(new Paragraph("Bairro: " + s.getBairro() + "   Zona: " + s.getZona() + "   Regional: " + s.getRegiao()));
+                    doc.add(new Paragraph("Voto: " + s.getVoto() + "  Pleito: " + s.getPleito()+"  Alcance: " + s.getAlcance() + "  Colaborador: " + s.getColaborador()));
+                    doc.add(new Paragraph("Endereço: " + s.getEndereco() + "  Bairro: " + s.getBairro()  ));
+                    doc.add(new Paragraph("Seção: "+s.getSecao() + "  Zona: " + s.getZona() + "  Regional: " + s.getRegiao()));
                     doc.add(new Paragraph("Observação: " + s.getObservacao()));
                     doc.add(new Paragraph("_____________________________________________________________________________"));
 
