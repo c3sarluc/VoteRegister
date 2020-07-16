@@ -25,11 +25,11 @@ public class EleitorDAO {
     
     private String addTildeOptions(String search) {
             return search.toLowerCase()
-                             .replaceAll("[aáàäâã]", "\\[aáàäâã\\]")
-                             .replaceAll("[eéèëê]", "\\[eéèëê\\]")
-                             .replaceAll("[iíìî]", "\\[iíìî\\]")
-                             .replaceAll("[oóòöôõ]", "\\[oóòöôõ\\]")
-                             .replaceAll("[uúùüû]", "\\[uúùüû\\]")
+                             .replaceAll("[aáàäâã]", "\\[aáàäâãAÁÃÀÂ\\]")
+                             .replaceAll("[eéèëê]", "\\[eéèëêEÉẼÈÊ\\]")
+                             .replaceAll("[iíìî]", "\\[iíìîIÌÍĨÎ\\]")
+                             .replaceAll("[oóòöôõ]", "\\[oóòöôõÔÕÓÒ\\]")
+                             .replaceAll("[uúùüû]", "\\[uúùüûÚUÙÛŨ\\]")
                              .replace("*", "[*]")
                              .replace("?", "[?]");
     }
