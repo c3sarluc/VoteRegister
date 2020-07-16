@@ -300,8 +300,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
             String so = String.valueOf( System.getProperty("os.name") );
             if (so.equals("Linux")){
                 PdfWriter.getInstance(doc, new FileOutputStream(path+"/relatorio.pdf"));
-            }
-            if (so.equals("Windows 7")){
+            }else{
                 PdfWriter.getInstance(doc, new FileOutputStream(path+"\\relatorio.pdf"));
             }
             
