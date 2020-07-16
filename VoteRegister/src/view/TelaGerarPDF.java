@@ -55,12 +55,6 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
                              .replace("?", "[?]");
     }
     
-    private String and(String query){
-            if(query.equals("")){
-                return "";
-            }
-            return " and " + query;
-        }
     
     private String getQueryCB(ArrayList<JComboBox> comboBox, String tbl) {
         int idx = 0;
@@ -303,7 +297,13 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
         Document doc = new Document ();
         
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream(path+"\\relatorio.pdf"));
+            String so = String.valueOf( System.getProperty("os.name") );
+            if (so.equals("Linux")){
+                PdfWriter.getInstance(doc, new FileOutputStream(path+"/relatorio.pdf"));
+            }
+            if (so.equals("Windows 7")){
+                PdfWriter.getInstance(doc, new FileOutputStream(path+"\\relatorio.pdf"));
+            }
             
             doc.open();
             
@@ -368,6 +368,8 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
                               s.getEndereco(),s.getBairro(),s.getSecao(),s.getObservacao(),s.getZona(), s.getRegiao()};
             dtmEleitores.addRow(dados);
         });
+        
+        this.eleitores = eleitoresReturn;
         
         jCadastro.setModel(dtmEleitores);
     }//GEN-LAST:event_btFiltrarActionPerformed
