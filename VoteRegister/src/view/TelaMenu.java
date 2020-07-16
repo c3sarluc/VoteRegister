@@ -73,7 +73,12 @@ public class TelaMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
 
-        bemVindo.setText("jLabel1");
+        jMenu.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+
+        bemVindo.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
+        bemVindo.setForeground(new java.awt.Color(255, 255, 255));
+        bemVindo.setText("Bem vindo");
+        bemVindo.setToolTipText("");
 
         jMenu.setLayer(bemVindo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -82,16 +87,16 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuLayout.setHorizontalGroup(
             jMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jMenuLayout.createSequentialGroup()
-                .addContainerGap(638, Short.MAX_VALUE)
+                .addContainerGap(695, Short.MAX_VALUE)
                 .addComponent(bemVindo)
-                .addContainerGap(685, Short.MAX_VALUE))
+                .addContainerGap(741, Short.MAX_VALUE))
         );
         jMenuLayout.setVerticalGroup(
             jMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jMenuLayout.createSequentialGroup()
-                .addContainerGap(467, Short.MAX_VALUE)
+                .addContainerGap(441, Short.MAX_VALUE)
                 .addComponent(bemVindo)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(397, Short.MAX_VALUE))
         );
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons 1/user.png"))); // NOI18N

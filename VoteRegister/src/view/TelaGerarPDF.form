@@ -23,23 +23,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="143" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="446" max="-2" attributes="0"/>
-          </Group>
-          <Component id="jPanel1" max="32767" attributes="0"/>
-          <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTextField1" min="-2" pref="324" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jButton1" min="-2" pref="143" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="672" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="1309" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,19 +46,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="197" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="399" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="49" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -197,666 +189,66 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="alcance" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="btAddFiltro" min="-2" pref="172" max="-2" attributes="0"/>
+                          <EmptySpace pref="985" max="32767" attributes="0"/>
+                          <Component id="btFiltrar" min="-2" pref="124" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="colaborador1" min="-2" pref="215" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="colaborador3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="colaborador2" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="ScrollFilters" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="bairro3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="bairro2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="bairro1" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton8" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="zona1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="zona2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton9" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="zona3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton10" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <Component id="ScrollFilters" min="-2" pref="117" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="alcance" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="bairro1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="bairro2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="bairro3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="colaborador1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="colaborador2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="colaborador3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="zona1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="zona2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="zona3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Component id="btAddFiltro" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btFiltrar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Container class="javax.swing.JScrollPane" name="ScrollFilters">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="PanelFilters">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                <Property name="columns" type="int" value="5"/>
+                <Property name="horizontalGap" type="int" value="4"/>
+                <Property name="rows" type="int" value="0"/>
+                <Property name="verticalGap" type="int" value="4"/>
+              </Layout>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="btAddFiltro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar bairro"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar colaborador 1"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="colaborador1">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colaborador1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar zona 1"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="zona1">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="11"/>
-                <StringItem index="2" value="101"/>
-                <StringItem index="3" value="118"/>
-                <StringItem index="4" value="147"/>
-              </StringArray>
-            </Property>
+            <Property name="text" type="java.lang.String" value="+ Adicionar Filtro"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zona1ActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="bairro1">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="90">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="BARRA DE JANGADA"/>
-                <StringItem index="2" value="ALTO DA UNI&#xc3;O"/>
-                <StringItem index="3" value="ALTO DO CEMITERIO"/>
-                <StringItem index="4" value="ARITANA"/>
-                <StringItem index="5" value="BORBOREMA"/>
-                <StringItem index="6" value="BULH&#xd5;ES"/>
-                <StringItem index="7" value="CAJ&#xc1;"/>
-                <StringItem index="8" value="CAJUEIRO SECO "/>
-                <StringItem index="9" value="CANDEIAS "/>
-                <StringItem index="10" value="CASCATA "/>
-                <StringItem index="11" value="CAVALEIRO"/>
-                <StringItem index="12" value="CENTRO "/>
-                <StringItem index="13" value="COL&#xd4;NIA DOS PADRES "/>
-                <StringItem index="14" value="COMPORTA"/>
-                <StringItem index="15" value="CORREGO DA BATALHA"/>
-                <StringItem index="16" value="CORREGO DA ROSA"/>
-                <StringItem index="17" value="CURADO"/>
-                <StringItem index="18" value="CURADO I"/>
-                <StringItem index="19" value="CURADO II"/>
-                <StringItem index="20" value="CURADO III"/>
-                <StringItem index="21" value="CURADO IV"/>
-                <StringItem index="22" value="CURCURANA"/>
-                <StringItem index="23" value="DISTRITO INDUSTRIAL"/>
-                <StringItem index="24" value="DOIS CARNEIROS"/>
-                <StringItem index="25" value="DUAS UNAS"/>
-                <StringItem index="26" value="ENGENHO CORVETA"/>
-                <StringItem index="27" value="ENGENHO MACUJ&#xc9;"/>
-                <StringItem index="28" value="ENGENHO MEGALP"/>
-                <StringItem index="29" value="ENGENHO PALMEIRA"/>
-                <StringItem index="30" value="ENGENHO SACUPEMA"/>
-                <StringItem index="31" value="ENGENHO VELHO"/>
-                <StringItem index="32" value="ENTRE RIOS"/>
-                <StringItem index="33" value="FLORIANO"/>
-                <StringItem index="34" value="GAMELEIRA"/>
-                <StringItem index="35" value="GENERAL DERBY"/>
-                <StringItem index="36" value="GOIABEIRA"/>
-                <StringItem index="37" value="GUARARAPES"/>
-                <StringItem index="38" value="JABOAT&#xc3;O CENTRO"/>
-                <StringItem index="39" value="JARDIM JORD&#xc3;O"/>
-                <StringItem index="40" value="JARDIM PIEDADE"/>
-                <StringItem index="41" value="JARDIM SANTO ANDR&#xc9;"/>
-                <StringItem index="42" value="LORETO "/>
-                <StringItem index="43" value="LOTE 19 "/>
-                <StringItem index="44" value="LOTE 31 "/>
-                <StringItem index="45" value="LOTE 56 "/>
-                <StringItem index="46" value="LOTE 92 "/>
-                <StringItem index="47" value="LOTEAMENTO BOLA DE OURO "/>
-                <StringItem index="48" value="LOTEAMENTO COVA DA ON&#xc7;A "/>
-                <StringItem index="49" value="LOTEAMENTO EDMAR DE OLIVEIRA "/>
-                <StringItem index="50" value="LOTEAMENTO GRANDE RECIFE "/>
-                <StringItem index="51" value="LOTEAMENTO SANTA HELENA "/>
-                <StringItem index="52" value="LOTEAMENTO SANTA IN&#xca;S "/>
-                <StringItem index="53" value="LOTEAMENTO SANTA JOANA "/>
-                <StringItem index="54" value="LOTEAMENTO S&#xc3;O CRISTOV&#xc3;O "/>
-                <StringItem index="55" value="LOTEAMENTO S&#xc3;O FRANCISCO "/>
-                <StringItem index="56" value="LOTEAMENTO SONHO VERDE "/>
-                <StringItem index="57" value="LOTEAMENTO VILA RICA "/>
-                <StringItem index="58" value="MANASSU "/>
-                <StringItem index="59" value="MARCOS FREIRE "/>
-                <StringItem index="60" value="MASSANGANA "/>
-                <StringItem index="61" value="MASSARANDUBA "/>
-                <StringItem index="62" value="MOEDA DE BRONZE "/>
-                <StringItem index="63" value="MURIBECA "/>
-                <StringItem index="64" value="MURIBEQUINHA "/>
-                <StringItem index="65" value="PARQUE SANTANA "/>
-                <StringItem index="66" value="PIEDADE "/>
-                <StringItem index="67" value="PORTA LARGA "/>
-                <StringItem index="68" value="PRAIAS "/>
-                <StringItem index="69" value="PRAZERES "/>
-                <StringItem index="70" value="RIO DAS VELHAS "/>
-                <StringItem index="71" value="SANTANA "/>
-                <StringItem index="72" value="SANTO ALEIXO "/>
-                <StringItem index="73" value="SANTO ANDR&#xc9; "/>
-                <StringItem index="74" value="S&#xc3;O JOS&#xc9; "/>
-                <StringItem index="75" value="SOCORRO "/>
-                <StringItem index="76" value="SOTAVE "/>
-                <StringItem index="77" value="SUCUPIRA "/>
-                <StringItem index="78" value="TERRA MAR "/>
-                <StringItem index="79" value="TR&#xca;S CARNEIROS "/>
-                <StringItem index="80" value="UR-10"/>
-                <StringItem index="81" value="UR-11 "/>
-                <StringItem index="82" value="UR-6 "/>
-                <StringItem index="83" value="VARGEM FRIA "/>
-                <StringItem index="84" value="VILA MARIO GOUVEIA "/>
-                <StringItem index="85" value="VILA NESTL&#xc9; "/>
-                <StringItem index="86" value="VILA RICA "/>
-                <StringItem index="87" value="VISTA ALEGRE "/>
-                <StringItem index="88" value="ZUMBI DO PACHECO"/>
-                <StringItem index="89" value=" "/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtro colaborador 2"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="colaborador2">
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtro colaborador 3"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="colaborador3">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colaborador3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAddFiltroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="btFiltrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="bairro2">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="90">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="BARRA DE JANGADA"/>
-                <StringItem index="2" value="ALTO DA UNI&#xc3;O"/>
-                <StringItem index="3" value="ALTO DO CEMITERIO"/>
-                <StringItem index="4" value="ARITANA"/>
-                <StringItem index="5" value="BORBOREMA"/>
-                <StringItem index="6" value="BULH&#xd5;ES"/>
-                <StringItem index="7" value="CAJ&#xc1;"/>
-                <StringItem index="8" value="CAJUEIRO SECO "/>
-                <StringItem index="9" value="CANDEIAS "/>
-                <StringItem index="10" value="CASCATA "/>
-                <StringItem index="11" value="CAVALEIRO"/>
-                <StringItem index="12" value="CENTRO "/>
-                <StringItem index="13" value="COL&#xd4;NIA DOS PADRES "/>
-                <StringItem index="14" value="COMPORTA"/>
-                <StringItem index="15" value="CORREGO DA BATALHA"/>
-                <StringItem index="16" value="CORREGO DA ROSA"/>
-                <StringItem index="17" value="CURADO"/>
-                <StringItem index="18" value="CURADO I"/>
-                <StringItem index="19" value="CURADO II"/>
-                <StringItem index="20" value="CURADO III"/>
-                <StringItem index="21" value="CURADO IV"/>
-                <StringItem index="22" value="CURCURANA"/>
-                <StringItem index="23" value="DISTRITO INDUSTRIAL"/>
-                <StringItem index="24" value="DOIS CARNEIROS"/>
-                <StringItem index="25" value="DUAS UNAS"/>
-                <StringItem index="26" value="ENGENHO CORVETA"/>
-                <StringItem index="27" value="ENGENHO MACUJ&#xc9;"/>
-                <StringItem index="28" value="ENGENHO MEGALP"/>
-                <StringItem index="29" value="ENGENHO PALMEIRA"/>
-                <StringItem index="30" value="ENGENHO SACUPEMA"/>
-                <StringItem index="31" value="ENGENHO VELHO"/>
-                <StringItem index="32" value="ENTRE RIOS"/>
-                <StringItem index="33" value="FLORIANO"/>
-                <StringItem index="34" value="GAMELEIRA"/>
-                <StringItem index="35" value="GENERAL DERBY"/>
-                <StringItem index="36" value="GOIABEIRA"/>
-                <StringItem index="37" value="GUARARAPES"/>
-                <StringItem index="38" value="JABOAT&#xc3;O CENTRO"/>
-                <StringItem index="39" value="JARDIM JORD&#xc3;O"/>
-                <StringItem index="40" value="JARDIM PIEDADE"/>
-                <StringItem index="41" value="JARDIM SANTO ANDR&#xc9;"/>
-                <StringItem index="42" value="LORETO "/>
-                <StringItem index="43" value="LOTE 19 "/>
-                <StringItem index="44" value="LOTE 31 "/>
-                <StringItem index="45" value="LOTE 56 "/>
-                <StringItem index="46" value="LOTE 92 "/>
-                <StringItem index="47" value="LOTEAMENTO BOLA DE OURO "/>
-                <StringItem index="48" value="LOTEAMENTO COVA DA ON&#xc7;A "/>
-                <StringItem index="49" value="LOTEAMENTO EDMAR DE OLIVEIRA "/>
-                <StringItem index="50" value="LOTEAMENTO GRANDE RECIFE "/>
-                <StringItem index="51" value="LOTEAMENTO SANTA HELENA "/>
-                <StringItem index="52" value="LOTEAMENTO SANTA IN&#xca;S "/>
-                <StringItem index="53" value="LOTEAMENTO SANTA JOANA "/>
-                <StringItem index="54" value="LOTEAMENTO S&#xc3;O CRISTOV&#xc3;O "/>
-                <StringItem index="55" value="LOTEAMENTO S&#xc3;O FRANCISCO "/>
-                <StringItem index="56" value="LOTEAMENTO SONHO VERDE "/>
-                <StringItem index="57" value="LOTEAMENTO VILA RICA "/>
-                <StringItem index="58" value="MANASSU "/>
-                <StringItem index="59" value="MARCOS FREIRE "/>
-                <StringItem index="60" value="MASSANGANA "/>
-                <StringItem index="61" value="MASSARANDUBA "/>
-                <StringItem index="62" value="MOEDA DE BRONZE "/>
-                <StringItem index="63" value="MURIBECA "/>
-                <StringItem index="64" value="MURIBEQUINHA "/>
-                <StringItem index="65" value="PARQUE SANTANA "/>
-                <StringItem index="66" value="PIEDADE "/>
-                <StringItem index="67" value="PORTA LARGA "/>
-                <StringItem index="68" value="PRAIAS "/>
-                <StringItem index="69" value="PRAZERES "/>
-                <StringItem index="70" value="RIO DAS VELHAS "/>
-                <StringItem index="71" value="SANTANA "/>
-                <StringItem index="72" value="SANTO ALEIXO "/>
-                <StringItem index="73" value="SANTO ANDR&#xc9; "/>
-                <StringItem index="74" value="S&#xc3;O JOS&#xc9; "/>
-                <StringItem index="75" value="SOCORRO "/>
-                <StringItem index="76" value="SOTAVE "/>
-                <StringItem index="77" value="SUCUPIRA "/>
-                <StringItem index="78" value="TERRA MAR "/>
-                <StringItem index="79" value="TR&#xca;S CARNEIROS "/>
-                <StringItem index="80" value="UR-10"/>
-                <StringItem index="81" value="UR-11 "/>
-                <StringItem index="82" value="UR-6 "/>
-                <StringItem index="83" value="VARGEM FRIA "/>
-                <StringItem index="84" value="VILA MARIO GOUVEIA "/>
-                <StringItem index="85" value="VILA NESTL&#xc9; "/>
-                <StringItem index="86" value="VILA RICA "/>
-                <StringItem index="87" value="VISTA ALEGRE "/>
-                <StringItem index="88" value="ZUMBI DO PACHECO"/>
-                <StringItem index="89" value=" "/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar bairro"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar bairro"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="bairro3">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="90">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="BARRA DE JANGADA"/>
-                <StringItem index="2" value="ALTO DA UNI&#xc3;O"/>
-                <StringItem index="3" value="ALTO DO CEMITERIO"/>
-                <StringItem index="4" value="ARITANA"/>
-                <StringItem index="5" value="BORBOREMA"/>
-                <StringItem index="6" value="BULH&#xd5;ES"/>
-                <StringItem index="7" value="CAJ&#xc1;"/>
-                <StringItem index="8" value="CAJUEIRO SECO "/>
-                <StringItem index="9" value="CANDEIAS "/>
-                <StringItem index="10" value="CASCATA "/>
-                <StringItem index="11" value="CAVALEIRO"/>
-                <StringItem index="12" value="CENTRO "/>
-                <StringItem index="13" value="COL&#xd4;NIA DOS PADRES "/>
-                <StringItem index="14" value="COMPORTA"/>
-                <StringItem index="15" value="CORREGO DA BATALHA"/>
-                <StringItem index="16" value="CORREGO DA ROSA"/>
-                <StringItem index="17" value="CURADO"/>
-                <StringItem index="18" value="CURADO I"/>
-                <StringItem index="19" value="CURADO II"/>
-                <StringItem index="20" value="CURADO III"/>
-                <StringItem index="21" value="CURADO IV"/>
-                <StringItem index="22" value="CURCURANA"/>
-                <StringItem index="23" value="DISTRITO INDUSTRIAL"/>
-                <StringItem index="24" value="DOIS CARNEIROS"/>
-                <StringItem index="25" value="DUAS UNAS"/>
-                <StringItem index="26" value="ENGENHO CORVETA"/>
-                <StringItem index="27" value="ENGENHO MACUJ&#xc9;"/>
-                <StringItem index="28" value="ENGENHO MEGALP"/>
-                <StringItem index="29" value="ENGENHO PALMEIRA"/>
-                <StringItem index="30" value="ENGENHO SACUPEMA"/>
-                <StringItem index="31" value="ENGENHO VELHO"/>
-                <StringItem index="32" value="ENTRE RIOS"/>
-                <StringItem index="33" value="FLORIANO"/>
-                <StringItem index="34" value="GAMELEIRA"/>
-                <StringItem index="35" value="GENERAL DERBY"/>
-                <StringItem index="36" value="GOIABEIRA"/>
-                <StringItem index="37" value="GUARARAPES"/>
-                <StringItem index="38" value="JABOAT&#xc3;O CENTRO"/>
-                <StringItem index="39" value="JARDIM JORD&#xc3;O"/>
-                <StringItem index="40" value="JARDIM PIEDADE"/>
-                <StringItem index="41" value="JARDIM SANTO ANDR&#xc9;"/>
-                <StringItem index="42" value="LORETO "/>
-                <StringItem index="43" value="LOTE 19 "/>
-                <StringItem index="44" value="LOTE 31 "/>
-                <StringItem index="45" value="LOTE 56 "/>
-                <StringItem index="46" value="LOTE 92 "/>
-                <StringItem index="47" value="LOTEAMENTO BOLA DE OURO "/>
-                <StringItem index="48" value="LOTEAMENTO COVA DA ON&#xc7;A "/>
-                <StringItem index="49" value="LOTEAMENTO EDMAR DE OLIVEIRA "/>
-                <StringItem index="50" value="LOTEAMENTO GRANDE RECIFE "/>
-                <StringItem index="51" value="LOTEAMENTO SANTA HELENA "/>
-                <StringItem index="52" value="LOTEAMENTO SANTA IN&#xca;S "/>
-                <StringItem index="53" value="LOTEAMENTO SANTA JOANA "/>
-                <StringItem index="54" value="LOTEAMENTO S&#xc3;O CRISTOV&#xc3;O "/>
-                <StringItem index="55" value="LOTEAMENTO S&#xc3;O FRANCISCO "/>
-                <StringItem index="56" value="LOTEAMENTO SONHO VERDE "/>
-                <StringItem index="57" value="LOTEAMENTO VILA RICA "/>
-                <StringItem index="58" value="MANASSU "/>
-                <StringItem index="59" value="MARCOS FREIRE "/>
-                <StringItem index="60" value="MASSANGANA "/>
-                <StringItem index="61" value="MASSARANDUBA "/>
-                <StringItem index="62" value="MOEDA DE BRONZE "/>
-                <StringItem index="63" value="MURIBECA "/>
-                <StringItem index="64" value="MURIBEQUINHA "/>
-                <StringItem index="65" value="PARQUE SANTANA "/>
-                <StringItem index="66" value="PIEDADE "/>
-                <StringItem index="67" value="PORTA LARGA "/>
-                <StringItem index="68" value="PRAIAS "/>
-                <StringItem index="69" value="PRAZERES "/>
-                <StringItem index="70" value="RIO DAS VELHAS "/>
-                <StringItem index="71" value="SANTANA "/>
-                <StringItem index="72" value="SANTO ALEIXO "/>
-                <StringItem index="73" value="SANTO ANDR&#xc9; "/>
-                <StringItem index="74" value="S&#xc3;O JOS&#xc9; "/>
-                <StringItem index="75" value="SOCORRO "/>
-                <StringItem index="76" value="SOTAVE "/>
-                <StringItem index="77" value="SUCUPIRA "/>
-                <StringItem index="78" value="TERRA MAR "/>
-                <StringItem index="79" value="TR&#xca;S CARNEIROS "/>
-                <StringItem index="80" value="UR-10"/>
-                <StringItem index="81" value="UR-11 "/>
-                <StringItem index="82" value="UR-6 "/>
-                <StringItem index="83" value="VARGEM FRIA "/>
-                <StringItem index="84" value="VILA MARIO GOUVEIA "/>
-                <StringItem index="85" value="VILA NESTL&#xc9; "/>
-                <StringItem index="86" value="VILA RICA "/>
-                <StringItem index="87" value="VISTA ALEGRE "/>
-                <StringItem index="88" value="ZUMBI DO PACHECO"/>
-                <StringItem index="89" value=" "/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="zona2">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="11"/>
-                <StringItem index="2" value="101"/>
-                <StringItem index="3" value="118"/>
-                <StringItem index="4" value="147"/>
-              </StringArray>
-            </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zona2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btFiltrarActionPerformed"/>
           </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar zona 3"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="zona3">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="11"/>
-                <StringItem index="2" value="101"/>
-                <StringItem index="3" value="118"/>
-                <StringItem index="4" value="147"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zona3ActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar zona 2"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel16">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alcance"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="alcance">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="16">
-                <StringItem index="0" value="Selecione"/>
-                <StringItem index="1" value="1"/>
-                <StringItem index="2" value="2"/>
-                <StringItem index="3" value="3"/>
-                <StringItem index="4" value="4"/>
-                <StringItem index="5" value="5"/>
-                <StringItem index="6" value="6"/>
-                <StringItem index="7" value="7"/>
-                <StringItem index="8" value="8"/>
-                <StringItem index="9" value="9"/>
-                <StringItem index="10" value="10"/>
-                <StringItem index="11" value="11"/>
-                <StringItem index="12" value="12"/>
-                <StringItem index="13" value="13"/>
-                <StringItem index="14" value="14"/>
-                <StringItem index="15" value="15"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton12">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -878,18 +270,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton11">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Filtrar"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

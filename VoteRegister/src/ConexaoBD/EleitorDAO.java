@@ -132,6 +132,65 @@ public class EleitorDAO {
         }
 
     }
+    
+    public ArrayList<Eleitor> getEleitores(String query){
+        
+        if(query.equals("")){
+            return this.getEleitores();
+        }
+
+        ResultSet resultSet = null;
+        Statement statement = null;
+
+        conexaoSQLite.conectar();
+
+        query = "SELECT * FROM tbl_eleitor where " + query + ";";
+        
+        System.out.println(query);
+
+        statement = conexaoSQLite.criarStatement();
+        
+        ArrayList<Eleitor> Eleitores = new ArrayList();
+
+        try {
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                Eleitores.add(new Eleitor(
+                        resultSet.getString("nome"), 
+                        resultSet.getString("nascimento"), 
+                        resultSet.getString("funcionario"), 
+                        resultSet.getString("email"), 
+                        resultSet.getString("telefone1"), 
+                        resultSet.getString("telefone2"), 
+                        resultSet.getString("voto"), 
+                        resultSet.getString("pleito"), 
+                        resultSet.getString("colaborador"), 
+                        resultSet.getString("endereco"), 
+                        resultSet.getString("bairro"), 
+                        resultSet.getString("observacao"), 
+                        resultSet.getString("zona"), 
+                        resultSet.getString("regiao"), 
+                        resultSet.getInt("id"),
+                        resultSet.getString("secao"),
+                        resultSet.getString("alcance"))); 
+ 
+            }
+            return Eleitores;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            try {
+                resultSet.close();
+                statement.close();
+                conexaoSQLite.desconectar();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+        }
+
+    }
 
     public void insert(Eleitor eleitor) {
         String sql = "INSERT INTO tbl_eleitor ( nome ,nascimento,"+

@@ -208,23 +208,28 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="jMenu">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto" size="48" style="1"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="638" max="32767" attributes="0"/>
+                  <EmptySpace pref="695" max="32767" attributes="0"/>
                   <Component id="bemVindo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="685" max="32767" attributes="0"/>
+                  <EmptySpace pref="741" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="467" max="32767" attributes="0"/>
+                  <EmptySpace pref="441" max="32767" attributes="0"/>
                   <Component id="bemVindo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="420" max="32767" attributes="0"/>
+                  <EmptySpace pref="397" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -232,7 +237,14 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="bemVindo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="48" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Bem vindo"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
       </SubComponents>
