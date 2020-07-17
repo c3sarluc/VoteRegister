@@ -5,6 +5,7 @@
  */
 package view;
 
+import ConexaoBD.ColaboradorDAO;
 import Entidades.Eleitor;
 import ConexaoBD.EleitorDAO;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
     String[] optsAlcance = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
     ArrayList<JComboBox> alcanceComboBoxes = new ArrayList<>();
     
-    ArrayList<JTextField> textsColaborador = new ArrayList<>();
+    ArrayList<JComboBox> colaboradorComboBoxes = new ArrayList<>();
 
     String[] optsBairro = { "", "BARRA DE JANGADA", "ALTO DA UNIÃO", "ALTO DO CEMITERIO", "ARITANA", "BORBOREMA", "BULHÕES", "CAJÁ", "CAJUEIRO SECO ", "CANDEIAS ", "CASCATA ", "CAVALEIRO", "CENTRO ", "COLÔNIA DOS PADRES ", "COMPORTA", "CORREGO DA BATALHA", "CORREGO DA ROSA", "CURADO", "CURADO I", "CURADO II", "CURADO III", "CURADO IV", "CURCURANA", "DISTRITO INDUSTRIAL", "DOIS CARNEIROS", "DUAS UNAS", "ENGENHO CORVETA", "ENGENHO MACUJÉ", "ENGENHO MEGALP", "ENGENHO PALMEIRA", "ENGENHO SACUPEMA", "ENGENHO VELHO", "ENTRE RIOS", "FORA DO MUNICÍPIO", "FLORIANO", "GAMELEIRA", "GENERAL DERBY", "GOIABEIRA", "GUARARAPES", "JABOATÃO CENTRO", "JARDIM JORDÃO", "JARDIM PIEDADE", "JARDIM SANTO ANDRÉ", "LORETO ", "LOTE 19 ", "LOTE 31 ", "LOTE 56 ", "LOTE 92 ", "LOTEAMENTO BOLA DE OURO ", "LOTEAMENTO COVA DA ONÇA ", "LOTEAMENTO EDMAR DE OLIVEIRA ", "LOTEAMENTO GRANDE RECIFE ", "LOTEAMENTO SANTA HELENA ", "LOTEAMENTO SANTA INÊS ", "LOTEAMENTO SANTA JOANA ", "LOTEAMENTO SÃO CRISTOVÃO ", "LOTEAMENTO SÃO FRANCISCO ", "LOTEAMENTO SONHO VERDE ", "LOTEAMENTO VILA RICA ", "MANASSU ", "MARCOS FREIRE ", "MASSANGANA ", "MASSARANDUBA ", "MOEDA DE BRONZE ", "MURIBECA ", "MURIBEQUINHA ", "PARQUE SANTANA ", "PIEDADE ", "PORTA LARGA ", "PRAIAS ", "PRAZERES ", "RIO DAS VELHAS ", "SANTANA ", "SANTO ALEIXO ", "SANTO ANDRÉ ", "SÃO JOSÉ ", "SOCORRO ", "SOTAVE ", "SUCUPIRA ", "TERRA MAR ", "TRÊS CARNEIROS ", "UR-10", "UR-11 ", "UR-6 ", "VARGEM FRIA ", "VILA MARIO GOUVEIA ", "VILA NESTLÉ ", "VILA RICA ", "VISTA ALEGRE ", "ZUMBI DO PACHECO"};
     ArrayList<JComboBox> bairroComboBoxes = new ArrayList<>();
@@ -111,6 +112,8 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
     }
     
     private void addFiltros(){
+        ColaboradorDAO colaboradorDao = new ColaboradorDAO();
+        
         JTextField txEleitor = new JTextField();
         PanelFilters.add(txEleitor);
         textsEleitor.add(txEleitor);
@@ -121,9 +124,11 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
         PanelFilters.add(comboBoxAlcance);
         alcanceComboBoxes.add(comboBoxAlcance);
         
-        JTextField txColaborador = new JTextField();
-        PanelFilters.add(txColaborador);
-        textsColaborador.add(txColaborador);
+        JComboBox comboBoxColaborador = new JComboBox();
+        DefaultComboBoxModel modelColaborador = new DefaultComboBoxModel(colaboradorDao.getColaboradoresNames().toArray());
+        comboBoxColaborador.setModel(modelColaborador);
+        PanelFilters.add(comboBoxColaborador);
+        colaboradorComboBoxes.add(comboBoxColaborador);
         
         JComboBox comboBoxBairro = new JComboBox();
         DefaultComboBoxModel modelBairro = new DefaultComboBoxModel(optsBairro);
@@ -346,7 +351,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
         EleitorDAO eleitorDao = new EleitorDAO();
         String[] queries = {
             getQueryTF(textsEleitor, "nome"), 
-            getQueryTF(textsColaborador, "colaborador"),
+            getQueryCB(colaboradorComboBoxes, "colaborador"),
             getQueryCB(alcanceComboBoxes, "alcance"),
             getQueryCB(bairroComboBoxes, "bairro"),
             getQueryCB(zonaComboBoxes, "zona")
