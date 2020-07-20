@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -376,6 +377,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
         this.eleitores = eleitoresReturn;
         
         jCadastro.setModel(dtmEleitores);
+        JOptionPane.showMessageDialog(null, "Formulário gerado!");
     }//GEN-LAST:event_btFiltrarActionPerformed
 
 

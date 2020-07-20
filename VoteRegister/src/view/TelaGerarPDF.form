@@ -46,7 +46,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" pref="197" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="399" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -228,8 +228,8 @@
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                 <Property name="columns" type="int" value="5"/>
                 <Property name="horizontalGap" type="int" value="4"/>
-                <Property name="rows" type="int" value="0"/>
                 <Property name="verticalGap" type="int" value="4"/>
+                <Property name="rows" type="int" value="0"/>
               </Layout>
             </Container>
           </SubComponents>

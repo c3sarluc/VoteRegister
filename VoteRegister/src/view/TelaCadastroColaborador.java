@@ -346,50 +346,47 @@ public class TelaCadastroColaborador extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(null, "Preencha o nome corretamente!");
 
-        }else if (nascimento.getText().equals("  /  /    ")){
-
-            JOptionPane.showMessageDialog(null, "Preencha a data de nascimento corretamente!");
-
-        }else if (funcionario.getSelectedItem().equals("Selecione")){
-
-            JOptionPane.showMessageDialog(null, "Preencha a funcionario corretamente!");
-
-        }else if (email.getText().equals("")){
-
-            JOptionPane.showMessageDialog(null, "Preencha a o e-mail corretamente!");
-
+//        }else if (nascimento.getText().equals("  /  /    ")){
+//
+//            JOptionPane.showMessageDialog(null, "Preencha a data de nascimento corretamente!");
+//
+//        }else if (funcionario.getSelectedItem().equals("Selecione")){
+//
+//            JOptionPane.showMessageDialog(null, "Preencha a funcionario corretamente!");
+//
+//        }else if (email.getText().equals("")){
+//
+//            JOptionPane.showMessageDialog(null, "Preencha a o e-mail corretamente!");
+//
+//       
         }else if (telefone1.getText().equals("(  )      -    ")){
 
             JOptionPane.showMessageDialog(null, "Preencha o Telefone 1 corretamente");
 
-        }else if (telefone1.getText().equals("(  )      -    ")){
-
-            JOptionPane.showMessageDialog(null, "Preencha o Telefone 1 corretamente");
-
-        }else if(voto.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "Preencha o voto corretamente");
-
-        }else if(pleito.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha o pleito corretamente");
-            
-        }else if (alcance.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "Preencha a alcance corretamente");
-    
-
-        }else if(endereco.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha o endereço corretamente");
-
-        }else if(bairro.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
-        
-        }else if (secao.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha a seção corretamente");
-
-        }else if(zona.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
-
-        }else if(regiao.getSelectedItem().equals("Selecione")){
-            JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
+//        }else if(voto.getSelectedItem().equals("Selecione")){
+//            JOptionPane.showMessageDialog(null, "Preencha o voto corretamente");
+//
+//        }else if(pleito.getText().equals("")){
+//            JOptionPane.showMessageDialog(null, "Preencha o pleito corretamente");
+//            
+//        }else if (alcance.getSelectedItem().equals("Selecione")){
+//            JOptionPane.showMessageDialog(null, "Preencha a alcance corretamente");
+//    
+//
+//        }else if(endereco.getText().equals("")){
+//            JOptionPane.showMessageDialog(null, "Preencha o endereço corretamente");
+//
+//        }else if(bairro.getSelectedItem().equals("Selecione")){
+//            JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
+//        
+//        }else if (secao.getText().equals("")){
+//            JOptionPane.showMessageDialog(null, "Preencha a seção corretamente");
+//
+//        }else if(zona.getSelectedItem().equals("Selecione")){
+//            JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
+//
+//        }else if(regiao.getSelectedItem().equals("Selecione")){
+//            JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
         }
         else{
 
@@ -419,6 +416,7 @@ public class TelaCadastroColaborador extends javax.swing.JInternalFrame {
         
         
         dtmEleitores.addRow(dados);
+        JOptionPane.showMessageDialog(null, "Usuário cadastrado");
 
         }
 
