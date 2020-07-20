@@ -50,8 +50,8 @@ public class TelaLogin extends javax.swing.JDialog {
         usuarioDao.criarTabela();
         
         
-        if(usuarioDao.checkUser("menezes", "2020") < 1){
-            usuarioDao.insert(new Usuario("menezes", "2020", 0));
+        if(usuarioDao.checkUser("admin", "admin") < 1){
+            usuarioDao.insert(new Usuario("admin", String.valueOf( "admin".hashCode()), 0));
         }
         
         
@@ -177,21 +177,33 @@ public class TelaLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+           JOptionPane.showMessageDialog(null, "Você escolheu sair!");
            System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-       if (this.checkLogin(txtLogin.getText(), new String(txtSenha.getPassword()))){
-           
-           login = txtLogin.getText();
-           JOptionPane.showMessageDialog(null, "Bem vindo!");
-           this.dispose();
-           
-       }else{
-           JOptionPane.showMessageDialog(null, "Dados inválidos!");
-       }
+        if (txtLogin.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Preencha o usuário corretamente!");
+
+
+        }else if ( new String(txtSenha.getPassword()).equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha a senha corretamente!");
+
+
+        }else{  
+        
+            if (this.checkLogin(txtLogin.getText(), new String(txtSenha.getPassword()))){
+
+               login = txtLogin.getText();
+               JOptionPane.showMessageDialog(null, "Bem vindo!");
+               this.dispose();
+
+           }else{
+               JOptionPane.showMessageDialog(null, "Dados inválidos!");
+           }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
