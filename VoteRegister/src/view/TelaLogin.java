@@ -50,8 +50,8 @@ public class TelaLogin extends javax.swing.JDialog {
         usuarioDao.criarTabela();
         
         
-        if(usuarioDao.checkUser("menezes", "2020") < 1){
-            usuarioDao.insert(new Usuario("menezes", "2020", 0));
+        if(usuarioDao.checkUser("admin", "admin") < 1){
+            usuarioDao.insert(new Usuario("admin", "admin", 0));
         }
         
         
