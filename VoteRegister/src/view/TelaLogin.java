@@ -182,16 +182,27 @@ public class TelaLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-       if (this.checkLogin(txtLogin.getText(), new String(txtSenha.getPassword()))){
-           
-           login = txtLogin.getText();
-           JOptionPane.showMessageDialog(null, "Bem vindo!");
-           this.dispose();
-           
-       }else{
-           JOptionPane.showMessageDialog(null, "Dados inválidos!");
-       }
+       
+     if (txtLogin.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Preencha o usuário corretamente!");
+
+
+        }else if ( new String(txtSenha.getPassword()).equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha a senha corretamente!");
+
+
+        }else{    
+                if (this.checkLogin(txtLogin.getText(), new String(txtSenha.getPassword()))){
+
+                    login = txtLogin.getText();
+                    JOptionPane.showMessageDialog(null, "Bem vindo!");
+                    this.dispose();
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Dados inválidos!");
+                }
+        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
