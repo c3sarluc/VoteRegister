@@ -104,7 +104,7 @@ public class UsuarioDAO {
             conectou = this.conexaoSQLite.conectar();
             PreparedStatement pstmt = this.conexaoSQLite.criarPreparedStatement(sql);
             pstmt.setString(1, usuario.getLogin());
-            pstmt.setString(2, String.valueOf(usuario.getHashSenha().hashCode()));
+            pstmt.setString(2, String.valueOf(usuario.getHashSenha()));
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -123,7 +123,7 @@ public class UsuarioDAO {
         pstmt = conexaoSQLite.criarStatement();
         
         String query = "Select * From tbl_usuario where login = '" + login + "' and hashSenha = '" + String.valueOf(hashSenha.hashCode()) + "';";
-
+        
         
         ArrayList<Usuario> Usuarios = new ArrayList();
 

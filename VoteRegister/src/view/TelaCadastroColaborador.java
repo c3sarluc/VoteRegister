@@ -346,7 +346,8 @@ public class TelaCadastroColaborador extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(null, "Preencha o nome corretamente!");
 
-//        }else if (nascimento.getText().equals("  /  /    ")){
+        }
+//          else if (nascimento.getText().equals("  /  /    ")){
 //
 //            JOptionPane.showMessageDialog(null, "Preencha a data de nascimento corretamente!");
 //
@@ -358,11 +359,16 @@ public class TelaCadastroColaborador extends javax.swing.JInternalFrame {
 //
 //            JOptionPane.showMessageDialog(null, "Preencha a o e-mail corretamente!");
 //
-//       
-        }else if (telefone1.getText().equals("(  )      -    ")){
+//        }
+        else if (telefone1.getText().equals("(  )      -    ")){
 
             JOptionPane.showMessageDialog(null, "Preencha o Telefone 1 corretamente");
 
+        }
+//else if (telefone1.getText().equals("(  )      -    ")){
+//
+//            JOptionPane.showMessageDialog(null, "Preencha o Telefone 1 corretamente");
+//
 //        }else if(voto.getSelectedItem().equals("Selecione")){
 //            JOptionPane.showMessageDialog(null, "Preencha o voto corretamente");
 //
@@ -387,7 +393,7 @@ public class TelaCadastroColaborador extends javax.swing.JInternalFrame {
 //
 //        }else if(regiao.getSelectedItem().equals("Selecione")){
 //            JOptionPane.showMessageDialog(null, "Preencha o bairro corretamente");
-        }
+//        }
         else{
 
         DefaultTableModel dtmEleitores = (DefaultTableModel) jCadastro.getModel();
@@ -416,7 +422,6 @@ public class TelaCadastroColaborador extends javax.swing.JInternalFrame {
         
         
         dtmEleitores.addRow(dados);
-        JOptionPane.showMessageDialog(null, "Usuário cadastrado");
 
         }
 
