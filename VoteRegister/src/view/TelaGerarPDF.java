@@ -316,6 +316,7 @@ public class TelaGerarPDF extends javax.swing.JInternalFrame {
                 
                 
                 try {   
+                    doc.add(new Paragraph("_____________________________________________________________________________"));
                     doc.add(new Paragraph("Nome: "+s.getNome()));
                     doc.add(new Paragraph("Data de Nascimento: " + s.getNascimento() + "  Funcionario: " + s.getFuncionario()));
                     doc.add(new Paragraph("E-mail: " + s.getEmail()+ "  Telefone 1: " + s.getTelefone1() + "  Telefone 2: " +  s.getTelefone2()));
