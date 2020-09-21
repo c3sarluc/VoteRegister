@@ -151,8 +151,9 @@ public class TelaCadastroUsuario extends javax.swing.JInternalFrame {
         
         usuarioDao.criarTabela();
         
-        Usuario usuario = new Usuario(txName.getText(), 
-        String.valueOf(txSenha.getText().hashCode()) , 0);  
+        Usuario usuario = new Usuario(
+                                txName.getText(), 
+                                String.valueOf(txSenha.getText().hashCode()) , 0);  
         
         
         

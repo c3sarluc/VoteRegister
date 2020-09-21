@@ -440,7 +440,7 @@ public class TelaCadastroEleitor extends javax.swing.JInternalFrame {
                secao.getText(), alcance.getSelectedItem().toString()
         );  
         
-             System.out.println(observacao.getText());
+        System.out.println(observacao.getText());
         System.out.println(eleitor);
         
 

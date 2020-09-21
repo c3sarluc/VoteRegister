@@ -43,7 +43,7 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
         secao.setText(jCadastro.getValueAt(jCadastro.getSelectedRow(), 14).toString());
         alcance.setSelectedItem(jCadastro.getValueAt(jCadastro.getSelectedRow(), 15).toString());
     }
-    
+     
     /**
      * Creates new form TelaConsultaColaborador
      */
@@ -431,6 +431,12 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
 
         jLabel13.setText("Nome:");
 
+        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPesquisarActionPerformed(evt);
+            }
+        });
+
         btPesquisar.setText("Pesquisar");
         btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -564,6 +570,10 @@ public class TelaConsultaColaborador extends javax.swing.JInternalFrame {
         tfPesquisar.setText("");
         btPesquisar.doClick();
     }//GEN-LAST:event_btLimparActionPerformed
+
+    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPesquisarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

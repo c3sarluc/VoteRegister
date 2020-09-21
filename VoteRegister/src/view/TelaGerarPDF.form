@@ -190,36 +190,33 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btAddFiltro" min="-2" pref="172" max="-2" attributes="0"/>
-                          <EmptySpace pref="985" max="32767" attributes="0"/>
-                          <Component id="btFiltrar" min="-2" pref="124" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="ScrollFilters" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollFilters" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="btAddFiltro" min="-2" pref="172" max="-2" attributes="0"/>
+                  <EmptySpace pref="896" max="32767" attributes="0"/>
+                  <Component id="btFiltrar" min="-2" pref="124" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="ScrollFilters" min="-2" pref="117" max="-2" attributes="0"/>
+                  <Component id="jScrollFilters" min="-2" pref="117" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btAddFiltro" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="btFiltrar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btAddFiltro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btFiltrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="ScrollFilters">
+        <Container class="javax.swing.JScrollPane" name="jScrollFilters">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>

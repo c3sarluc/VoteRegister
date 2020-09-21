@@ -6,9 +6,7 @@
 package view;
 
 import ConexaoBD.ColaboradorDAO;
-import ConexaoBD.EleitorDAO;
 import Entidades.Colaborador;
-import Entidades.Eleitor;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
