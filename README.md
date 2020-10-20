@@ -1,3 +1,5 @@
+# Vote Register
+
 Vote Register - é basicamente um sistema para registros e intenções de votos. O sistema também conta com a exportação de seus dados em um relatório em PDF.
 
 Os usuários poderão:
